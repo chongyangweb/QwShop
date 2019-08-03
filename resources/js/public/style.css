@@ -1,0 +1,316 @@
+/***********通用基本类1************/
+
+/*格式化样式*/
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td {margin:0;padding:0;} 
+table {border-collapse:collapse;border-spacing:0;} 
+fieldset,img {border:0} 
+address,caption,cite,code,dfn,em,strong,th,var {font-style:normal;font-weight:normal} 
+ol,ul {list-style:none} 
+caption,th {text-align:left} 
+h1,h2,h3,h4,h5,h6 {font-size:100%;font-weight:normal} 
+q:before,q:after {content:''} 
+abbr,acronym { border:0}
+
+/*文字排版、颜色*/
+.f12{font-size:12px}
+.f13{font-size:13px}
+.f14{font-size:14px}
+.f16{font-size:16px}
+.f20{font-size:20px}
+.fb{font-weight:bold}
+.fn{font-weight:normal}
+.t2{text-indent:2em}
+.red,a.red{color:#cc0031}
+.darkblue,a.darkblue{color:#039}
+.gray,a.gray{color:#878787}
+.lh150{line-height:150%}
+.lh180{line-height:180%}
+.lh200{line-height:200%}
+.unl{text-decoration:underline;}
+.no_unl{text-decoration:none;}
+
+/*定位*/
+.tl{text-align:left}
+.tc{text-align:center}
+.tr{text-align:right}
+.fl{float:left;display:inline}
+.fr{float:right;display:inline}
+.cb{clear:both}
+.cl{clear:left}
+.cr{clear:right}
+.vm{vertical-align:middle} 
+.pr{position:relative} 
+.pa{position:absolute}
+.abs-right{position:absolute;right:0}
+.zoom{zoom:1} 
+.hidden{visibility:hidden} 
+.none{display:none}
+
+/*长度高度*/
+.w10{width:10px}
+.w20{width:20px}
+.w50{width:50px}
+.w90{width:90px}
+.w100{width:100px}
+.w200{width:200px}
+.w250{width:250px}
+.w500{width:500px}
+.w800{width:800px}
+.w{width:100%}
+.h50{height:50px}
+.h80{height:80px}
+.h100{height:100px}
+.h200{height:200px}
+.h{height:100%}
+
+/*边距*/
+.m10{margin:10px}
+.m15{margin:15px}
+.m30{margin:30px}
+.mt5{margin-top:5px}
+.mt10{margin-top:10px}
+.mt15{margin-top:15px}
+.mt50{margin-top:50px}
+.mt100{margin-top:100px}
+.mb5{margin-bottom:5px}
+.mb10{margin-bottom:10px}
+.mb15{margin-bottom:15px}
+.mb100{margin-bottom:100px}
+.ml5{margin-left:5px}
+.ml10{margin-left:10px}
+.ml15{margin-left:15px}
+.ml20{margin-left:20px}
+.ml30{margin-left:30px}
+.ml50{margin-left:50px}
+.ml100{margin-left:100px}
+.mr5{margin-right:5px}
+.mr10{margin-right:10px}
+.mr15{margin-right:15px}
+.mr50{margin-right:50px}
+.mr100{margin-right:100px}
+.p10{padding:10px;}
+.p15{padding:15px;}
+.p30{padding:30px;}
+.pt5{padding-top:5px}
+.pt10{padding-top:10px}
+.pt15{padding-top:15px}
+.pt20{padding-top:20px}
+.pt30{padding-top:30px}
+.pt50{padding-top:50px}
+.pb5{padding-bottom:5px}
+.pb100{padding-bottom:100px}
+.pl5{padding-left:5px}
+.pl10{padding-left:10px}
+.pl50{padding-left:50px}
+.pl100{padding-left:100px}
+.pr5{padding-right:5px}
+.pr10{padding-right:10px}
+.pr15{padding-right:15px}
+.pr100{padding-right:100px}
+
+/***********通用基本类2************/
+
+/* Copyright 2008 TSXMLOVE. All Rights Reserved. */
+* {
+padding: 0px;
+margin: 0px;
+text-align: left;
+font-family:"Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimSun, sans-serif;
+line-height: 150%;
+}
+body {
+font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimSun, sans-serif;
+font-size: 14px;
+text-align: center;
+color: #666;
+background-repeat: repeat-x;
+}
+table {
+border-collapse: collapse;
+}
+td {
+padding: 3px;
+}
+img {
+border: none;
+}
+input {
+padding: 1px;
+vertical-align: middle;
+line-height: normal;
+}
+input:focus{
+border-color: #bbb !important;
+}
+.main-box {
+margin-right: auto;
+margin-left: auto;
+width: 960px;
+clear: both;
+zoom:1;
+overflow:hidden;
+background-color: #CCCCCC;
+}
+.text-overflow-hidden {
+white-space: nowrap;
+word-spacing: normal;
+letter-spacing: normal;
+overflow: hidden;
+}
+.box-align-center {
+margin-right: auto;
+margin-left: auto;
+}
+/*css定义超链接四个状态也有顺序的。*/
+a{color:#666;text-decoration: none;}
+a:hover, a:active {
+text-decoration: underline;
+color: #BD0A01;
+border: none;
+}
+/*以上语句分别定义了"链接、已访问过的链接、鼠标停在上方时、点下鼠标时"的样式。
+注意，必须按以上顺序写，否则显示可能和你预想的不一样。记住它们的顺序是“LVHA”。*/
+ul {
+clear:both;
+overflow:hidden;
+width: 100%;
+}
+ul, li {
+list-style:none;
+}
+.valign {
+display:table-cell;
+*display: inline;
+zoom:1;
+vertical-align:middle;
+}
+.text{word-wrap:break-word;overflow:hidden;word-break:break-all;}
+/*======================CSS垂直居中=======================*/
+.holder {
+width:740px;
+height:300px;
+border:1px solid #777;
+text-align:center;
+display:table-cell;
+vertical-align:middle;
+}
+/*以下样式针对IE*/
+.edge {
+width:0;
+height:100%;
+display:inline-block;
+vertical-align:middle;
+}
+.container {
+vertical-align:middle;
+display:inline-block;
+}
+/*===============================================*/
+
+/*CSS Hack*/
+.class {
+background-color:#FFFF00;/*所有浏览器*/
+*background-color:#00FF00;/*IE*/
+_background-color:#00FFFF;/*IE6*/
+}
+/*======万能Float闭合======*/
+.clear:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+    }
+
+.clear {display: inline-block;} /* for IE/Mac */
+
+/*<!-- main stylesheet ends, CC with new stylesheet below... -->*/
+
+.clear {
+    zoom: 1;     /* triggers hasLayout */
+    display: block;     /* resets display for IE/Win */
+    } /* Only IE can see inside the conditional comment
+    and read this CSS rule. Don't ever use a normal HTML
+    comment inside the CC or it will close prematurely. */
+/*======万能Float闭合2======*/
+.overflow-hidden{overflow:hidden;}         /*控制背景溢出*/
+.equal-height{margin-bottom:-32800px;padding-bottom:32800px;}      /*控制高度足够小*/
+
+/*======万能Float闭合3======*/
+
+.clear 
+{
+ height:0px;
+ clear:both;
+ font-size:0px;
+ line-height:0px;
+ zoom: 1;
+}
+
+/*线*/
+.unline{
+    border-bottom: 1px solid #efefef;
+    width: 100%;
+    margin:20px 0;
+}
+/*线2*/
+.unline2{
+    width: 100%;
+    margin:20px 0;
+}
+
+.index_main{background: #fff;margin-left: 15px;margin-right: 10px;margin-top:10px;border: 1px solid #e7eaec !important;padding-bottom: 80px;padding: 20px;}
+.index_main2{margin-left: 15px;margin-right: 10px;margin-top:10px;padding-bottom: 80px;padding: 10px;}
+.fy{margin:30px 0;}
+.el-scrollbar__wrap {overflow-x: hidden;}
+.el-pager{width:666px;}
+.main_del_right{float: right;}
+.index_search_input{width: 200px;margin:0 10px 0 70px;border-radius: 2px;height: 29px;border:1px solid #DCDFE6;outline: none;text-indent: 8px;}
+.search_input{width: 200px;margin:0 10px 0 30px;display: block;}
+.search_input .el-input--small {width: 200px;}
+.index_main_title{line-height: 35px;font-size: 16px;}
+.input_lable{line-height: 34px;float: right;}
+
+/*组件过度特效*/
+/* 可以设置不同的进入和离开动画 */
+/* 设置持续时间和动画函数 */
+.slide-fade-enter-active {
+  transition: all .6s cubic-bezier(1.0, 0.6, 0.8, 1.0);
+  -webkit-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+.slide-fade-leave-active {
+  transition: all .2s cubic-bezier(1.0, 0.6, 0.8, 1.0);
+  -webkit-transform: translate(5%, 0);
+  transform: translate(5%, 0);
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active for below version 2.1.8 */ {
+  /*transform: translateX(10px);*/
+  opacity: 0;
+}
+
+
+/*侧边栏过度特效*/
+/* 可以设置不同的进入和离开动画 */
+/* 设置持续时间和动画函数 */
+.slide2-fade-enter-active {
+  transition: width 2s;
+  -webkit-transform: width 2s;
+  transform: width 2s;
+}
+.slide2-fade-leave-active {
+  transition: width 2s;
+  -webkit-transform: width 2s;
+  transform: width 2s;
+}
+.slide2-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active for below version 2.1.8 */ {
+  /*transform: translateX(10px);*/
+  /*opacity: 0;*/
+}
+
+
+.admin_fff_btn a{color:#fff;}
+.error_rand{width: 12px;height: 12px;background: #999;display: block;border-radius: 50%;}
+.success_rand{width: 12px;height: 12px;background: #67c23a;display: block;border-radius: 50%;}
