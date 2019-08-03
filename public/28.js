@@ -150,7 +150,9 @@ __webpack_require__.r(__webpack_exports__);
       is_left_bar_text: false,
       winHeight: {
         height: '600px'
-      }
+      },
+      barshow: 'display:block;text-align:center;',
+      barhide: 'display:none;text-align:center;'
     };
   },
   methods: {
@@ -188,23 +190,38 @@ __webpack_require__.r(__webpack_exports__);
     },
     // 隐藏左侧栏目
     hideBar: function hideBar(e) {
-      var lis = this.$refs.left_bar.children[0].children;
+      var lis = this.$refs.left_bar.children[1].children;
+      console.log(this.$refs);
 
       if (this.spanLen == 3 && e) {
         this.spanLen = 1;
         this.spanLen2 = 23;
         this.is_left_bar_text = true;
+        this.barshow = 'display:none;text-align:center;';
+        this.barhide = 'display:block;text-align:center;';
+        this.$refs.left_bar.children[1].style.width = "52px";
+        this.$refs.left_bar.children[1].style.margin = "0 auto";
+        this.$refs.left_bar.children[1].style.borderRight = "none";
 
         for (var i = 1; i < lis.length; i++) {
-          lis[i].children["0"].children[1].style.display = "none";
+          if (lis[i].children["0"].children.length > 0) {
+            lis[i].children["0"].children[1].style.display = "none";
+          }
         }
       } else {
         this.is_left_bar_text = false;
         this.spanLen = 3;
         this.spanLen2 = 21;
+        this.barshow = 'display:block;text-align:center;';
+        this.barhide = 'display:none;text-align:center;';
+        this.$refs.left_bar.children[1].style.width = "";
+        this.$refs.left_bar.children[1].style.margin = "";
+        this.$refs.left_bar.children[1].style.borderRight = "";
 
         for (var i = 1; i < lis.length; i++) {
-          lis[i].children["0"].children[1].style.display = "block";
+          if (lis[i].children["0"].children.length > 0) {
+            lis[i].children["0"].children[1].style.display = "block";
+          }
         }
       }
     }
@@ -331,11 +348,23 @@ var render = function() {
                   _c("div", { staticClass: "admin_logo" }, [
                     _c(
                       "span",
+                      { style: _vm.barshow },
                       [
                         _c("font", { attrs: { color: "#409EFF" } }, [
                           _vm._v("Q")
                         ]),
                         _vm._v("ingwu")
+                      ],
+                      1
+                    ),
+                    _c(
+                      "span",
+                      { style: _vm.barhide },
+                      [
+                        _c("font", { attrs: { color: "#409EFF" } }, [
+                          _vm._v("Q")
+                        ]),
+                        _vm._v("w")
                       ],
                       1
                     )

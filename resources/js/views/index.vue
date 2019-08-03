@@ -11,7 +11,7 @@
 
 					<!-- 导航 -->
 					<div class="left_bar" ref="left_bar">
-						<div class="admin_logo"><span><font color="#409EFF">Q</font>ingwu</span></div>
+						<div class="admin_logo"><span :style="barshow"><font color="#409EFF">Q</font>ingwu</span><span :style="barhide"><font color="#409EFF">Q</font>w</span></div>
 						<el-menu background-color="#20222A" text-color="#cfcfcf"  active-text-color="#fff" :router=true>
 							<el-menu-item index="/Admin/index">
 			      				<span slot="title"><i class="icon iconfont title_i">&#xe625;</i><font :class="{left_bar_text:is_left_bar_text}">系统首页</font></span>
@@ -138,7 +138,9 @@ export default {
 			is_left_bar_text:false,
 		  	winHeight:{
 		  		height:'600px',
-		  	}
+		  	},
+		  	barshow:'display:block;text-align:center;',
+		  	barhide:'display:none;text-align:center;',
 		}
 	},
 	methods:{
@@ -169,20 +171,36 @@ export default {
 
 		// 隐藏左侧栏目
 		hideBar:function(e){
-			var lis = this.$refs.left_bar.children[0].children;
+			var lis = this.$refs.left_bar.children[1].children;
+			console.log(this.$refs);
+			
 			if(this.spanLen == 3 && e){
 				this.spanLen = 1;
 				this.spanLen2 = 23;
 				this.is_left_bar_text = true;
+				this.barshow = 'display:none;text-align:center;';
+				this.barhide = 'display:block;text-align:center;';
+				this.$refs.left_bar.children[1].style.width = "52px";
+				this.$refs.left_bar.children[1].style.margin = "0 auto";
+				this.$refs.left_bar.children[1].style.borderRight = "none";
 				for(var i=1;i<lis.length;i++){
-					lis[i].children["0"].children[1].style.display = "none";
+					if(lis[i].children["0"].children.length > 0){
+						lis[i].children["0"].children[1].style.display = "none";
+					}
 				}
 			}else{
 				this.is_left_bar_text = false;
 				this.spanLen = 3;
 				this.spanLen2 = 21;
+				this.barshow = 'display:block;text-align:center;';
+				this.barhide = 'display:none;text-align:center;';
+				this.$refs.left_bar.children[1].style.width = "";
+				this.$refs.left_bar.children[1].style.margin = "";
+				this.$refs.left_bar.children[1].style.borderRight = "";
 				for(var i=1;i<lis.length;i++){
-					lis[i].children["0"].children[1].style.display = "block";
+					if(lis[i].children["0"].children.length > 0){
+						lis[i].children["0"].children[1].style.display = "block";
+					}
 				}
 			}
 			
