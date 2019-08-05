@@ -3,7 +3,7 @@
   <div class="login_bg">
 
         <div class="login_black_hg">
-            <h3 class="head_log"><img src="../assets/head-logo.png" alt=""></h3>
+            <h3 class="head_log"><img src="../../assets/head-logo.png" alt=""></h3>
 
                 <div class="form-group">
 		<el-input size="small" v-model="username" @keyup.enter.native="login" placeholder="用户名"></el-input>
@@ -79,7 +79,7 @@ export default {
 <style scoped>
 
 .login_bg{
-background:url('../assets/login_bg.svg');background-position: center;background-size: 100%;height:100%;background-color:#f1f1f1
+background:url('../../assets/login_bg.svg');background-position: center;background-size: 100%;height:100%;background-color:#f1f1f1
 ;}
 .login_black_hg{background:#fff;width:400px;border-radius:6px;padding:0px 40px 20px 40px;box-sizing:border-box;
 -moz-box-sizing:border-box; /* Firefox */

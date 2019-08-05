@@ -180,68 +180,20 @@ Route::namespace('Admin')->prefix('Admin')->group(function(){
 	Route::any('/wechat/getWechat', 'WechatController@getWechat'); 
 	Route::any('/wechat/callback', 'WechatController@callback'); 
 
-
-	/****************
-	 * 教师答题系统
-	**********************/
-
-	// 年级
-	Route::match(['get','post'],'/teacher_grade/add', 'TeacherGradeController@add');
-	Route::post('/teacher_grade/del', 'TeacherGradeController@del');
-	Route::match(['get','post'],'/teacher_grade/edit/{id}', 'TeacherGradeController@edit');
-	Route::post('/teacher_grade/index', 'TeacherGradeController@index');
-
-	// 科目
-	Route::match(['get','post'],'/teacher_subject/add', 'TeacherSubjectController@add');
-	Route::post('/teacher_subject/del', 'TeacherSubjectController@del');
-	Route::match(['get','post'],'/teacher_subject/edit/{id}', 'TeacherSubjectController@edit');
-	Route::post('/teacher_subject/index', 'TeacherSubjectController@index');
-
-	// 材料
-	Route::match(['get','post'],'/teacher_material/add', 'TeacherMaterialController@add');
-	Route::post('/teacher_material/del', 'TeacherMaterialController@del');
-	Route::match(['get','post'],'/teacher_material/edit/{id}', 'TeacherMaterialController@edit');
-	Route::post('/teacher_material/index', 'TeacherMaterialController@index');
-	Route::post('/teacher_material/bind_question', 'TeacherMaterialController@bind_question');
-
-	// 问题
-	Route::match(['get','post'],'/teacher_question/add', 'TeacherQuestionController@add');
-	Route::post('/teacher_question/del', 'TeacherQuestionController@del');
-	Route::post('/teacher_question/add_public', 'TeacherQuestionController@add_public');
-	Route::match(['get','post'],'/teacher_question/edit/{id}', 'TeacherQuestionController@edit');
-	Route::post('/teacher_question/index', 'TeacherQuestionController@index');
-	Route::post('/teacher_question_public/index', 'TeacherQuestionController@index_public');
-
-	// 班级
-	Route::match(['get','post'],'/teacher_class/add', 'TeacherClassController@add');
-	Route::post('/teacher_class/del', 'TeacherClassController@del');
-	Route::match(['get','post'],'/teacher_class/edit/{id}', 'TeacherClassController@edit');
-	Route::post('/teacher_class/index', 'TeacherClassController@index');
-
-	// 班级人员先是
-	Route::match(['get','post'],'/teacher_class/user_index/{id}', 'TeacherClassController@user_index');
-	Route::match(['get','post'],'/teacher_class/user_del', 'TeacherClassController@user_del');	// 删除成员
-	Route::match(['get','post'],'/teacher_class/add_paper', 'TeacherClassController@add_paper'); //  加入试卷
-
-	// 试卷
-	Route::match(['get','post'],'/teacher_paper/add', 'TeacherPaperController@add');
-	Route::post('/teacher_paper/del', 'TeacherPaperController@del');
-	Route::match(['get','post'],'/teacher_paper/edit/{id}', 'TeacherPaperController@edit');
-	Route::post('/teacher_paper/index', 'TeacherPaperController@index');
-
-	// 试卷详细展示
-	Route::get('/teacher_paper/get_paper', 'TeacherPaperController@get_paper'); // 获取用户的试卷
-	Route::post('/teacher_paper/add_paper', 'TeacherPaperController@add_paper'); // 试卷中添加题目
-	Route::match(['get','post'],'/teacher_paper/question_index/{id}', 'TeacherPaperController@question_index');
-	Route::post('/teacher_paper/question_add', 'TeacherPaperController@question_add');
-	Route::post('/teacher_paper/question_del', 'TeacherPaperController@question_del');
-
-	// 广告
-	Route::match(['get','post'],'/teacher_gg/index', 'TeacherGgController@index');
-
-
-
 });
+
+/****************
+ * 商家后端
+**********************/
+Route::namespace('Seller')->prefix('Seller')->group(function(){
+	
+	// 登陆接口
+	Route::post('/login', 'LoginController@login');
+	Route::get('/logout', 'LoginController@logout');
+	Route::post('/checkUser', 'LoginController@checkUser');
+	Route::get('/refresh', 'LoginController@refresh'); // 刷新token
+});
+
 
 // 前端接口
 

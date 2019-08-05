@@ -25,3 +25,10 @@ Route::view('/Admin/cat/index','index');
 Route::view('/Admin/cat/add','index');
 Route::view('/Admin/cat/edit','index');
 
+
+/*********************
+ * 商家后台
+*****************************/
+
+Route::view('/Seller/login','index');
+Route::view('/Seller/index','index');

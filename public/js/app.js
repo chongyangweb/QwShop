@@ -115462,258 +115462,300 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Home = function Home() {
-  return __webpack_require__.e(/*! import() */ 45).then(__webpack_require__.bind(null, /*! ./views/Home.vue */ "./resources/js/views/Home.vue"));
+  return __webpack_require__.e(/*! import() */ 107).then(__webpack_require__.bind(null, /*! ./views/Admin/Home.vue */ "./resources/js/views/Admin/Home.vue"));
 };
 
 var Login = function Login() {
-  return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ./views/login.vue */ "./resources/js/views/login.vue"));
+  return __webpack_require__.e(/*! import() */ 90).then(__webpack_require__.bind(null, /*! ./views/Admin/login.vue */ "./resources/js/views/Admin/login.vue"));
 };
 
 var Index = function Index() {
-  return __webpack_require__.e(/*! import() */ 28).then(__webpack_require__.bind(null, /*! ./views/index.vue */ "./resources/js/views/index.vue"));
+  return __webpack_require__.e(/*! import() */ 89).then(__webpack_require__.bind(null, /*! ./views/Admin/index.vue */ "./resources/js/views/Admin/index.vue"));
 };
 
 var Default = function Default() {
-  return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(27)]).then(__webpack_require__.bind(null, /*! ./views/default2.vue */ "./resources/js/views/default2.vue"));
+  return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(88)]).then(__webpack_require__.bind(null, /*! ./views/Admin/default2.vue */ "./resources/js/views/Admin/default2.vue"));
 };
 
 var System = function System() {
-  return __webpack_require__.e(/*! import() */ 55).then(__webpack_require__.bind(null, /*! ./views/System/index.vue */ "./resources/js/views/System/index.vue"));
+  return __webpack_require__.e(/*! import() */ 117).then(__webpack_require__.bind(null, /*! ./views/Admin/System/index.vue */ "./resources/js/views/Admin/System/index.vue"));
 };
 
 var Version = function Version() {
-  return __webpack_require__.e(/*! import() */ 24).then(__webpack_require__.bind(null, /*! ./views/Version/index.vue */ "./resources/js/views/Version/index.vue"));
+  return __webpack_require__.e(/*! import() */ 85).then(__webpack_require__.bind(null, /*! ./views/Admin/Version/index.vue */ "./resources/js/views/Admin/Version/index.vue"));
 };
 
 var Task = function Task() {
-  return __webpack_require__.e(/*! import() */ 56).then(__webpack_require__.bind(null, /*! ./views/Task/index.vue */ "./resources/js/views/Task/index.vue"));
+  return __webpack_require__.e(/*! import() */ 118).then(__webpack_require__.bind(null, /*! ./views/Admin/Task/index.vue */ "./resources/js/views/Admin/Task/index.vue"));
 }; // 404视图
 
 
 var Error404 = function Error404() {
-  return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ./views/Error/404.vue */ "./resources/js/views/Error/404.vue"));
+  return __webpack_require__.e(/*! import() */ 70).then(__webpack_require__.bind(null, /*! ./views/Admin/Error/404.vue */ "./resources/js/views/Admin/Error/404.vue"));
 }; // 栏目
 
 
 var Cat = function Cat() {
-  return __webpack_require__.e(/*! import() */ 31).then(__webpack_require__.bind(null, /*! ./views/Cat/index.vue */ "./resources/js/views/Cat/index.vue"));
+  return __webpack_require__.e(/*! import() */ 93).then(__webpack_require__.bind(null, /*! ./views/Admin/Cat/index.vue */ "./resources/js/views/Admin/Cat/index.vue"));
 };
 
 var CatAdd = function CatAdd() {
-  return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ./views/Cat/add.vue */ "./resources/js/views/Cat/add.vue"));
+  return __webpack_require__.e(/*! import() */ 66).then(__webpack_require__.bind(null, /*! ./views/Admin/Cat/add.vue */ "./resources/js/views/Admin/Cat/add.vue"));
 };
 
 var CatEdit = function CatEdit() {
-  return __webpack_require__.e(/*! import() */ 7).then(__webpack_require__.bind(null, /*! ./views/Cat/edit.vue */ "./resources/js/views/Cat/edit.vue"));
+  return __webpack_require__.e(/*! import() */ 67).then(__webpack_require__.bind(null, /*! ./views/Admin/Cat/edit.vue */ "./resources/js/views/Admin/Cat/edit.vue"));
 }; // 角色
 
 
 var Role = function Role() {
-  return __webpack_require__.e(/*! import() */ 50).then(__webpack_require__.bind(null, /*! ./views/Role/index.vue */ "./resources/js/views/Role/index.vue"));
+  return __webpack_require__.e(/*! import() */ 112).then(__webpack_require__.bind(null, /*! ./views/Admin/Role/index.vue */ "./resources/js/views/Admin/Role/index.vue"));
 };
 
 var RoleAdd = function RoleAdd() {
-  return __webpack_require__.e(/*! import() */ 19).then(__webpack_require__.bind(null, /*! ./views/Role/add.vue */ "./resources/js/views/Role/add.vue"));
+  return __webpack_require__.e(/*! import() */ 80).then(__webpack_require__.bind(null, /*! ./views/Admin/Role/add.vue */ "./resources/js/views/Admin/Role/add.vue"));
 };
 
 var RoleEdit = function RoleEdit() {
-  return __webpack_require__.e(/*! import() */ 20).then(__webpack_require__.bind(null, /*! ./views/Role/edit.vue */ "./resources/js/views/Role/edit.vue"));
+  return __webpack_require__.e(/*! import() */ 81).then(__webpack_require__.bind(null, /*! ./views/Admin/Role/edit.vue */ "./resources/js/views/Admin/Role/edit.vue"));
 }; // 用户
 
 
 var User = function User() {
-  return __webpack_require__.e(/*! import() */ 58).then(__webpack_require__.bind(null, /*! ./views/User/index.vue */ "./resources/js/views/User/index.vue"));
+  return __webpack_require__.e(/*! import() */ 120).then(__webpack_require__.bind(null, /*! ./views/Admin/User/index.vue */ "./resources/js/views/Admin/User/index.vue"));
 };
 
 var UserAdd = function UserAdd() {
-  return __webpack_require__.e(/*! import() */ 57).then(__webpack_require__.bind(null, /*! ./views/User/add.vue */ "./resources/js/views/User/add.vue"));
+  return __webpack_require__.e(/*! import() */ 119).then(__webpack_require__.bind(null, /*! ./views/Admin/User/add.vue */ "./resources/js/views/Admin/User/add.vue"));
 };
 
 var UserEdit = function UserEdit() {
-  return __webpack_require__.e(/*! import() */ 23).then(__webpack_require__.bind(null, /*! ./views/User/edit.vue */ "./resources/js/views/User/edit.vue"));
+  return __webpack_require__.e(/*! import() */ 84).then(__webpack_require__.bind(null, /*! ./views/Admin/User/edit.vue */ "./resources/js/views/Admin/User/edit.vue"));
 }; // 幻灯片
 
 
 var Slide = function Slide() {
-  return __webpack_require__.e(/*! import() */ 54).then(__webpack_require__.bind(null, /*! ./views/Slide/index.vue */ "./resources/js/views/Slide/index.vue"));
+  return __webpack_require__.e(/*! import() */ 116).then(__webpack_require__.bind(null, /*! ./views/Admin/Slide/index.vue */ "./resources/js/views/Admin/Slide/index.vue"));
 };
 
 var SlideAdd = function SlideAdd() {
-  return __webpack_require__.e(/*! import() */ 53).then(__webpack_require__.bind(null, /*! ./views/Slide/add.vue */ "./resources/js/views/Slide/add.vue"));
+  return __webpack_require__.e(/*! import() */ 115).then(__webpack_require__.bind(null, /*! ./views/Admin/Slide/add.vue */ "./resources/js/views/Admin/Slide/add.vue"));
 };
 
 var SlideEdit = function SlideEdit() {
-  return __webpack_require__.e(/*! import() */ 22).then(__webpack_require__.bind(null, /*! ./views/Slide/edit.vue */ "./resources/js/views/Slide/edit.vue"));
+  return __webpack_require__.e(/*! import() */ 83).then(__webpack_require__.bind(null, /*! ./views/Admin/Slide/edit.vue */ "./resources/js/views/Admin/Slide/edit.vue"));
 }; // 其他设置
 
 
 var OtherSetting = function OtherSetting() {
-  return __webpack_require__.e(/*! import() */ 47).then(__webpack_require__.bind(null, /*! ./views/OtherSetting/index.vue */ "./resources/js/views/OtherSetting/index.vue"));
+  return __webpack_require__.e(/*! import() */ 109).then(__webpack_require__.bind(null, /*! ./views/Admin/OtherSetting/index.vue */ "./resources/js/views/Admin/OtherSetting/index.vue"));
 }; // 配置 微信app_id等
 
 
 var Config = function Config() {
-  return __webpack_require__.e(/*! import() */ 33).then(__webpack_require__.bind(null, /*! ./views/Config/index.vue */ "./resources/js/views/Config/index.vue"));
+  return __webpack_require__.e(/*! import() */ 95).then(__webpack_require__.bind(null, /*! ./views/Admin/Config/index.vue */ "./resources/js/views/Admin/Config/index.vue"));
 }; // 栏目管理
 
 
 var Columns = function Columns() {
-  return __webpack_require__.e(/*! import() */ 32).then(__webpack_require__.bind(null, /*! ./views/Columns/index.vue */ "./resources/js/views/Columns/index.vue"));
+  return __webpack_require__.e(/*! import() */ 94).then(__webpack_require__.bind(null, /*! ./views/Admin/Columns/index.vue */ "./resources/js/views/Admin/Columns/index.vue"));
 };
 
 var ColumnsAdd = function ColumnsAdd() {
-  return __webpack_require__.e(/*! import() */ 8).then(__webpack_require__.bind(null, /*! ./views/Columns/add.vue */ "./resources/js/views/Columns/add.vue"));
+  return __webpack_require__.e(/*! import() */ 68).then(__webpack_require__.bind(null, /*! ./views/Admin/Columns/add.vue */ "./resources/js/views/Admin/Columns/add.vue"));
 };
 
 var ColumnsEdit = function ColumnsEdit() {
-  return __webpack_require__.e(/*! import() */ 9).then(__webpack_require__.bind(null, /*! ./views/Columns/edit.vue */ "./resources/js/views/Columns/edit.vue"));
+  return __webpack_require__.e(/*! import() */ 69).then(__webpack_require__.bind(null, /*! ./views/Admin/Columns/edit.vue */ "./resources/js/views/Admin/Columns/edit.vue"));
 }; // 文章管理
 
 
 var Article = function Article() {
-  return __webpack_require__.e(/*! import() */ 30).then(__webpack_require__.bind(null, /*! ./views/Article/index.vue */ "./resources/js/views/Article/index.vue"));
+  return __webpack_require__.e(/*! import() */ 92).then(__webpack_require__.bind(null, /*! ./views/Admin/Article/index.vue */ "./resources/js/views/Admin/Article/index.vue"));
 };
 
 var ArticleAdd = function ArticleAdd() {
-  return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(29)]).then(__webpack_require__.bind(null, /*! ./views/Article/add.vue */ "./resources/js/views/Article/add.vue"));
+  return Promise.all(/*! import() */[__webpack_require__.e(7), __webpack_require__.e(91)]).then(__webpack_require__.bind(null, /*! ./views/Admin/Article/add.vue */ "./resources/js/views/Admin/Article/add.vue"));
 };
 
 var ArticleEdit = function ArticleEdit() {
-  return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(5)]).then(__webpack_require__.bind(null, /*! ./views/Article/edit.vue */ "./resources/js/views/Article/edit.vue"));
+  return Promise.all(/*! import() */[__webpack_require__.e(7), __webpack_require__.e(65)]).then(__webpack_require__.bind(null, /*! ./views/Admin/Article/edit.vue */ "./resources/js/views/Admin/Article/edit.vue"));
 }; // 产品管理
 
 
 var Product = function Product() {
-  return __webpack_require__.e(/*! import() */ 49).then(__webpack_require__.bind(null, /*! ./views/Product/index.vue */ "./resources/js/views/Product/index.vue"));
+  return __webpack_require__.e(/*! import() */ 111).then(__webpack_require__.bind(null, /*! ./views/Admin/Product/index.vue */ "./resources/js/views/Admin/Product/index.vue"));
 };
 
 var ProductAdd = function ProductAdd() {
-  return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(48)]).then(__webpack_require__.bind(null, /*! ./views/Product/add.vue */ "./resources/js/views/Product/add.vue"));
+  return Promise.all(/*! import() */[__webpack_require__.e(7), __webpack_require__.e(110)]).then(__webpack_require__.bind(null, /*! ./views/Admin/Product/add.vue */ "./resources/js/views/Admin/Product/add.vue"));
 };
 
 var ProductEdit = function ProductEdit() {
-  return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(18)]).then(__webpack_require__.bind(null, /*! ./views/Product/edit.vue */ "./resources/js/views/Product/edit.vue"));
+  return Promise.all(/*! import() */[__webpack_require__.e(7), __webpack_require__.e(79)]).then(__webpack_require__.bind(null, /*! ./views/Admin/Product/edit.vue */ "./resources/js/views/Admin/Product/edit.vue"));
 }; // 专题管理
 
 
 var Seminar = function Seminar() {
-  return __webpack_require__.e(/*! import() */ 52).then(__webpack_require__.bind(null, /*! ./views/Seminar/index.vue */ "./resources/js/views/Seminar/index.vue"));
+  return __webpack_require__.e(/*! import() */ 114).then(__webpack_require__.bind(null, /*! ./views/Admin/Seminar/index.vue */ "./resources/js/views/Admin/Seminar/index.vue"));
 };
 
 var SeminarAdd = function SeminarAdd() {
-  return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(51)]).then(__webpack_require__.bind(null, /*! ./views/Seminar/add.vue */ "./resources/js/views/Seminar/add.vue"));
+  return Promise.all(/*! import() */[__webpack_require__.e(7), __webpack_require__.e(113)]).then(__webpack_require__.bind(null, /*! ./views/Admin/Seminar/add.vue */ "./resources/js/views/Admin/Seminar/add.vue"));
 };
 
 var SeminarEdit = function SeminarEdit() {
-  return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(21)]).then(__webpack_require__.bind(null, /*! ./views/Seminar/edit.vue */ "./resources/js/views/Seminar/edit.vue"));
+  return Promise.all(/*! import() */[__webpack_require__.e(7), __webpack_require__.e(82)]).then(__webpack_require__.bind(null, /*! ./views/Admin/Seminar/edit.vue */ "./resources/js/views/Admin/Seminar/edit.vue"));
 }; // 商品管理
 
 
 var Goods = function Goods() {
-  return __webpack_require__.e(/*! import() */ 44).then(__webpack_require__.bind(null, /*! ./views/Goods/index.vue */ "./resources/js/views/Goods/index.vue"));
+  return __webpack_require__.e(/*! import() */ 106).then(__webpack_require__.bind(null, /*! ./views/Admin/Goods/index.vue */ "./resources/js/views/Admin/Goods/index.vue"));
 };
 
 var GoodsAdd = function GoodsAdd() {
-  return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(42)]).then(__webpack_require__.bind(null, /*! ./views/Goods/add.vue */ "./resources/js/views/Goods/add.vue"));
+  return Promise.all(/*! import() */[__webpack_require__.e(7), __webpack_require__.e(104)]).then(__webpack_require__.bind(null, /*! ./views/Admin/Goods/add.vue */ "./resources/js/views/Admin/Goods/add.vue"));
 };
 
 var GoodsEdit = function GoodsEdit() {
-  return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(43)]).then(__webpack_require__.bind(null, /*! ./views/Goods/edit.vue */ "./resources/js/views/Goods/edit.vue"));
+  return Promise.all(/*! import() */[__webpack_require__.e(7), __webpack_require__.e(105)]).then(__webpack_require__.bind(null, /*! ./views/Admin/Goods/edit.vue */ "./resources/js/views/Admin/Goods/edit.vue"));
 }; // 商品栏目
 
 
 var GoodsCat = function GoodsCat() {
-  return __webpack_require__.e(/*! import() */ 36).then(__webpack_require__.bind(null, /*! ./views/GoodsCat/index.vue */ "./resources/js/views/GoodsCat/index.vue"));
+  return __webpack_require__.e(/*! import() */ 98).then(__webpack_require__.bind(null, /*! ./views/Admin/GoodsCat/index.vue */ "./resources/js/views/Admin/GoodsCat/index.vue"));
 };
 
 var GoodsCatAdd = function GoodsCatAdd() {
-  return __webpack_require__.e(/*! import() */ 12).then(__webpack_require__.bind(null, /*! ./views/GoodsCat/add.vue */ "./resources/js/views/GoodsCat/add.vue"));
+  return __webpack_require__.e(/*! import() */ 73).then(__webpack_require__.bind(null, /*! ./views/Admin/GoodsCat/add.vue */ "./resources/js/views/Admin/GoodsCat/add.vue"));
 };
 
 var GoodsCatEdit = function GoodsCatEdit() {
-  return __webpack_require__.e(/*! import() */ 13).then(__webpack_require__.bind(null, /*! ./views/GoodsCat/edit.vue */ "./resources/js/views/GoodsCat/edit.vue"));
+  return __webpack_require__.e(/*! import() */ 74).then(__webpack_require__.bind(null, /*! ./views/Admin/GoodsCat/edit.vue */ "./resources/js/views/Admin/GoodsCat/edit.vue"));
 }; // 商品品牌
 
 
 var GoodsBrand = function GoodsBrand() {
-  return __webpack_require__.e(/*! import() */ 35).then(__webpack_require__.bind(null, /*! ./views/GoodsBrand/index.vue */ "./resources/js/views/GoodsBrand/index.vue"));
+  return __webpack_require__.e(/*! import() */ 97).then(__webpack_require__.bind(null, /*! ./views/Admin/GoodsBrand/index.vue */ "./resources/js/views/Admin/GoodsBrand/index.vue"));
 };
 
 var GoodsBrandAdd = function GoodsBrandAdd() {
-  return __webpack_require__.e(/*! import() */ 10).then(__webpack_require__.bind(null, /*! ./views/GoodsBrand/add.vue */ "./resources/js/views/GoodsBrand/add.vue"));
+  return __webpack_require__.e(/*! import() */ 71).then(__webpack_require__.bind(null, /*! ./views/Admin/GoodsBrand/add.vue */ "./resources/js/views/Admin/GoodsBrand/add.vue"));
 };
 
 var GoodsBrandEdit = function GoodsBrandEdit() {
-  return __webpack_require__.e(/*! import() */ 11).then(__webpack_require__.bind(null, /*! ./views/GoodsBrand/edit.vue */ "./resources/js/views/GoodsBrand/edit.vue"));
+  return __webpack_require__.e(/*! import() */ 72).then(__webpack_require__.bind(null, /*! ./views/Admin/GoodsBrand/edit.vue */ "./resources/js/views/Admin/GoodsBrand/edit.vue"));
 }; // 店铺幻灯片
 
 
 var GoodsSlide = function GoodsSlide() {
-  return __webpack_require__.e(/*! import() */ 41).then(__webpack_require__.bind(null, /*! ./views/GoodsSlide/index.vue */ "./resources/js/views/GoodsSlide/index.vue"));
+  return __webpack_require__.e(/*! import() */ 103).then(__webpack_require__.bind(null, /*! ./views/Admin/GoodsSlide/index.vue */ "./resources/js/views/Admin/GoodsSlide/index.vue"));
 };
 
 var GoodsSlideAdd = function GoodsSlideAdd() {
-  return __webpack_require__.e(/*! import() */ 40).then(__webpack_require__.bind(null, /*! ./views/GoodsSlide/add.vue */ "./resources/js/views/GoodsSlide/add.vue"));
+  return __webpack_require__.e(/*! import() */ 102).then(__webpack_require__.bind(null, /*! ./views/Admin/GoodsSlide/add.vue */ "./resources/js/views/Admin/GoodsSlide/add.vue"));
 };
 
 var GoodsSlideEdit = function GoodsSlideEdit() {
-  return __webpack_require__.e(/*! import() */ 17).then(__webpack_require__.bind(null, /*! ./views/GoodsSlide/edit.vue */ "./resources/js/views/GoodsSlide/edit.vue"));
+  return __webpack_require__.e(/*! import() */ 78).then(__webpack_require__.bind(null, /*! ./views/Admin/GoodsSlide/edit.vue */ "./resources/js/views/Admin/GoodsSlide/edit.vue"));
 }; // 快递模版
 
 
 var GoodsDelivery = function GoodsDelivery() {
-  return __webpack_require__.e(/*! import() */ 38).then(__webpack_require__.bind(null, /*! ./views/GoodsDelivery/index.vue */ "./resources/js/views/GoodsDelivery/index.vue"));
+  return __webpack_require__.e(/*! import() */ 100).then(__webpack_require__.bind(null, /*! ./views/Admin/GoodsDelivery/index.vue */ "./resources/js/views/Admin/GoodsDelivery/index.vue"));
 };
 
 var GoodsDeliveryAdd = function GoodsDeliveryAdd() {
-  return __webpack_require__.e(/*! import() */ 14).then(__webpack_require__.bind(null, /*! ./views/GoodsDelivery/add.vue */ "./resources/js/views/GoodsDelivery/add.vue"));
+  return __webpack_require__.e(/*! import() */ 75).then(__webpack_require__.bind(null, /*! ./views/Admin/GoodsDelivery/add.vue */ "./resources/js/views/Admin/GoodsDelivery/add.vue"));
 };
 
 var GoodsDeliveryEdit = function GoodsDeliveryEdit() {
-  return __webpack_require__.e(/*! import() */ 15).then(__webpack_require__.bind(null, /*! ./views/GoodsDelivery/edit.vue */ "./resources/js/views/GoodsDelivery/edit.vue"));
+  return __webpack_require__.e(/*! import() */ 76).then(__webpack_require__.bind(null, /*! ./views/Admin/GoodsDelivery/edit.vue */ "./resources/js/views/Admin/GoodsDelivery/edit.vue"));
 }; // 地区代理
 
 
 var GoodsArea = function GoodsArea() {
-  return __webpack_require__.e(/*! import() */ 34).then(__webpack_require__.bind(null, /*! ./views/GoodsArea/index.vue */ "./resources/js/views/GoodsArea/index.vue"));
+  return __webpack_require__.e(/*! import() */ 96).then(__webpack_require__.bind(null, /*! ./views/Admin/GoodsArea/index.vue */ "./resources/js/views/Admin/GoodsArea/index.vue"));
 }; // 商品评论
 
 
 var GoodsComment = function GoodsComment() {
-  return __webpack_require__.e(/*! import() */ 37).then(__webpack_require__.bind(null, /*! ./views/GoodsComment/index.vue */ "./resources/js/views/GoodsComment/index.vue"));
+  return __webpack_require__.e(/*! import() */ 99).then(__webpack_require__.bind(null, /*! ./views/Admin/GoodsComment/index.vue */ "./resources/js/views/Admin/GoodsComment/index.vue"));
 }; // 订单列表
 
 
 var Order = function Order() {
-  return __webpack_require__.e(/*! import() */ 46).then(__webpack_require__.bind(null, /*! ./views/Order/index.vue */ "./resources/js/views/Order/index.vue"));
+  return __webpack_require__.e(/*! import() */ 108).then(__webpack_require__.bind(null, /*! ./views/Admin/Order/index.vue */ "./resources/js/views/Admin/Order/index.vue"));
 };
 
 var OrderInfo = function OrderInfo() {
-  return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ./views/Order/info.vue */ "./resources/js/views/Order/info.vue"));
+  return __webpack_require__.e(/*! import() */ 64).then(__webpack_require__.bind(null, /*! ./views/Admin/Order/info.vue */ "./resources/js/views/Admin/Order/info.vue"));
 }; // 售后服务
 
 
 var GoodsServerEdit = function GoodsServerEdit() {
-  return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(39)]).then(__webpack_require__.bind(null, /*! ./views/GoodsServer/edit.vue */ "./resources/js/views/GoodsServer/edit.vue"));
+  return Promise.all(/*! import() */[__webpack_require__.e(7), __webpack_require__.e(101)]).then(__webpack_require__.bind(null, /*! ./views/Admin/GoodsServer/edit.vue */ "./resources/js/views/Admin/GoodsServer/edit.vue"));
 }; // 店铺信息
 
 
 var GoodsShop = function GoodsShop() {
-  return __webpack_require__.e(/*! import() */ 16).then(__webpack_require__.bind(null, /*! ./views/GoodsShop/edit.vue */ "./resources/js/views/GoodsShop/edit.vue"));
+  return __webpack_require__.e(/*! import() */ 77).then(__webpack_require__.bind(null, /*! ./views/Admin/GoodsShop/edit.vue */ "./resources/js/views/Admin/GoodsShop/edit.vue"));
 }; // 微信公众号
 // 商品栏目
 
 
 var WechatCat = function WechatCat() {
-  return __webpack_require__.e(/*! import() */ 59).then(__webpack_require__.bind(null, /*! ./views/WechatCat/index.vue */ "./resources/js/views/WechatCat/index.vue"));
+  return __webpack_require__.e(/*! import() */ 121).then(__webpack_require__.bind(null, /*! ./views/Admin/WechatCat/index.vue */ "./resources/js/views/Admin/WechatCat/index.vue"));
 };
 
 var WechatCatAdd = function WechatCatAdd() {
-  return __webpack_require__.e(/*! import() */ 25).then(__webpack_require__.bind(null, /*! ./views/WechatCat/add.vue */ "./resources/js/views/WechatCat/add.vue"));
+  return __webpack_require__.e(/*! import() */ 86).then(__webpack_require__.bind(null, /*! ./views/Admin/WechatCat/add.vue */ "./resources/js/views/Admin/WechatCat/add.vue"));
 };
 
 var WechatCatEdit = function WechatCatEdit() {
-  return __webpack_require__.e(/*! import() */ 26).then(__webpack_require__.bind(null, /*! ./views/WechatCat/edit.vue */ "./resources/js/views/WechatCat/edit.vue"));
+  return __webpack_require__.e(/*! import() */ 87).then(__webpack_require__.bind(null, /*! ./views/Admin/WechatCat/edit.vue */ "./resources/js/views/Admin/WechatCat/edit.vue"));
+};
+/**********************************
+ * 商家后台
+***********/
+
+
+var SellerLogin = function SellerLogin() {
+  return __webpack_require__.e(/*! import() */ 62).then(__webpack_require__.bind(null, /*! ./views/Seller/login.vue */ "./resources/js/views/Seller/login.vue"));
+};
+
+var SellerIndex = function SellerIndex() {
+  return __webpack_require__.e(/*! import() */ 61).then(__webpack_require__.bind(null, /*! ./views/Seller/index.vue */ "./resources/js/views/Seller/index.vue"));
+};
+
+var SellerDefault = function SellerDefault() {
+  return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(60)]).then(__webpack_require__.bind(null, /*! ./views/Seller/default2.vue */ "./resources/js/views/Seller/default2.vue"));
+}; // 商品管理
+
+
+var SellerGoods = function SellerGoods() {
+  return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ./views/Seller/Goods/index.vue */ "./resources/js/views/Seller/Goods/index.vue"));
+};
+
+var SellerGoodsAdd = function SellerGoodsAdd() {
+  return Promise.all(/*! import() */[__webpack_require__.e(7), __webpack_require__.e(0)]).then(__webpack_require__.bind(null, /*! ./views/Seller/Goods/add.vue */ "./resources/js/views/Seller/Goods/add.vue"));
+};
+
+var SellerGoodsEdit = function SellerGoodsEdit() {
+  return Promise.all(/*! import() */[__webpack_require__.e(7), __webpack_require__.e(2)]).then(__webpack_require__.bind(null, /*! ./views/Seller/Goods/edit.vue */ "./resources/js/views/Seller/Goods/edit.vue"));
+}; // 仓库管理
+
+
+var SellerWarehouse = function SellerWarehouse() {
+  return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ./views/Seller/Warehouse/index.vue */ "./resources/js/views/Seller/Warehouse/index.vue"));
+};
+
+var SellerWarehouseAdd = function SellerWarehouseAdd() {
+  return __webpack_require__.e(/*! import() */ 27).then(__webpack_require__.bind(null, /*! ./views/Seller/Warehouse/add.vue */ "./resources/js/views/Seller/Warehouse/add.vue"));
+};
+
+var SellerWarehouseEdit = function SellerWarehouseEdit() {
+  return __webpack_require__.e(/*! import() */ 8).then(__webpack_require__.bind(null, /*! ./views/Seller/Warehouse/edit.vue */ "./resources/js/views/Seller/Warehouse/edit.vue"));
 };
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
@@ -115977,6 +116019,51 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
       path: '/Admin/wechat_cat/edit/:id',
       name: 'wechat_cat_edit',
       component: WechatCatEdit
+    }]
+  },
+  /****************************************
+   * 商家后台
+  **************************/
+  // 商家登录
+  {
+    path: '/Seller/login',
+    name: 'seller_login',
+    component: SellerLogin
+  }, {
+    path: '/Seller/index',
+    name: 'seller_index',
+    component: SellerIndex,
+    children: [{
+      path: '/Seller/index',
+      name: 'seller_default',
+      component: SellerDefault
+    }, // 默认后台首页
+    // 商品管理
+    {
+      path: '/Seller/goods/index',
+      name: 'seller_goods_index',
+      component: SellerGoods
+    }, {
+      path: '/Seller/goods/add',
+      name: 'seller_goods_add',
+      component: SellerGoodsAdd
+    }, {
+      path: '/Seller/goods/edit/edit/:id',
+      name: 'seller_goods_edit',
+      component: SellerGoodsEdit
+    }, // 仓库管理
+    {
+      path: '/Seller/warehouse/index',
+      name: 'seller_goods_index',
+      component: SellerWarehouse
+    }, {
+      path: '/Seller/warehouse/add',
+      name: 'seller_goods_add',
+      component: SellerWarehouseAdd
+    }, {
+      path: '/Seller/warehouse/edit/edit/:id',
+      name: 'seller_goods_edit',
+      component: SellerWarehouseEdit
     }]
   }]
 }));

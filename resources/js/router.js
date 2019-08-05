@@ -1,109 +1,130 @@
 import  Vue from 'vue'
 import  Router from 'vue-router'
 
-const  Home = () => import ('./views/Home.vue')
-const  Login = () => import('./views/login.vue')
-const  Index = () => import('./views/index.vue')
-const  Default = () => import('./views/default2.vue')
-const  System = () => import('./views/System/index.vue')
-const  Version = () => import('./views/Version/index.vue')
-const  Task = () => import('./views/Task/index.vue')
+const  Home = () => import ('./views/Admin/Home.vue')
+const  Login = () => import('./views/Admin/login.vue')
+const  Index = () => import('./views/Admin/index.vue')
+const  Default = () => import('./views/Admin/default2.vue')
+const  System = () => import('./views/Admin/System/index.vue')
+const  Version = () => import('./views/Admin/Version/index.vue')
+const  Task = () => import('./views/Admin/Task/index.vue')
 
 // 404视图
-const  Error404 = () => import('./views/Error/404.vue')
+const  Error404 = () => import('./views/Admin/Error/404.vue')
 
 // 栏目
-const  Cat = () => import('./views/Cat/index.vue')
-const  CatAdd = () => import('./views/Cat/add.vue')
-const  CatEdit = () => import('./views/Cat/edit.vue')
+const  Cat = () => import('./views/Admin/Cat/index.vue')
+const  CatAdd = () => import('./views/Admin/Cat/add.vue')
+const  CatEdit = () => import('./views/Admin/Cat/edit.vue')
 
 // 角色
-const  Role = () => import('./views/Role/index.vue')
-const  RoleAdd = () => import('./views/Role/add.vue')
-const  RoleEdit = () => import('./views/Role/edit.vue')
+const  Role = () => import('./views/Admin/Role/index.vue')
+const  RoleAdd = () => import('./views/Admin/Role/add.vue')
+const  RoleEdit = () => import('./views/Admin/Role/edit.vue')
 
 // 用户
-const  User = () => import('./views/User/index.vue')
-const  UserAdd = () => import('./views/User/add.vue')
-const  UserEdit = () => import('./views/User/edit.vue')
+const  User = () => import('./views/Admin/User/index.vue')
+const  UserAdd = () => import('./views/Admin/User/add.vue')
+const  UserEdit = () => import('./views/Admin/User/edit.vue')
 
 // 幻灯片
-const  Slide = () => import('./views/Slide/index.vue')
-const  SlideAdd = () => import('./views/Slide/add.vue')
-const  SlideEdit = () => import('./views/Slide/edit.vue')
+const  Slide = () => import('./views/Admin/Slide/index.vue')
+const  SlideAdd = () => import('./views/Admin/Slide/add.vue')
+const  SlideEdit = () => import('./views/Admin/Slide/edit.vue')
 
 // 其他设置
-const  OtherSetting = () => import('./views/OtherSetting/index.vue')
+const  OtherSetting = () => import('./views/Admin/OtherSetting/index.vue')
 
 // 配置 微信app_id等
-const  Config = () => import('./views/Config/index.vue')
+const  Config = () => import('./views/Admin/Config/index.vue')
 
 // 栏目管理
-const  Columns = () => import('./views/Columns/index.vue')
-const  ColumnsAdd = () => import('./views/Columns/add.vue')
-const  ColumnsEdit = () => import('./views/Columns/edit.vue')
+const  Columns = () => import('./views/Admin/Columns/index.vue')
+const  ColumnsAdd = () => import('./views/Admin/Columns/add.vue')
+const  ColumnsEdit = () => import('./views/Admin/Columns/edit.vue')
 
 // 文章管理
-const  Article = () => import('./views/Article/index.vue')
-const  ArticleAdd = () => import('./views/Article/add.vue')
-const  ArticleEdit = () => import('./views/Article/edit.vue')
+const  Article = () => import('./views/Admin/Article/index.vue')
+const  ArticleAdd = () => import('./views/Admin/Article/add.vue')
+const  ArticleEdit = () => import('./views/Admin/Article/edit.vue')
 
 // 产品管理
-const  Product = () => import('./views/Product/index.vue')
-const  ProductAdd = () => import('./views/Product/add.vue')
-const  ProductEdit = () => import('./views/Product/edit.vue')
+const  Product = () => import('./views/Admin/Product/index.vue')
+const  ProductAdd = () => import('./views/Admin/Product/add.vue')
+const  ProductEdit = () => import('./views/Admin/Product/edit.vue')
 
 // 专题管理
-const  Seminar = () => import('./views/Seminar/index.vue')
-const  SeminarAdd = () => import('./views/Seminar/add.vue')
-const  SeminarEdit = () => import('./views/Seminar/edit.vue')
+const  Seminar = () => import('./views/Admin/Seminar/index.vue')
+const  SeminarAdd = () => import('./views/Admin/Seminar/add.vue')
+const  SeminarEdit = () => import('./views/Admin/Seminar/edit.vue')
 
 // 商品管理
-const  Goods = () => import('./views/Goods/index.vue')
-const  GoodsAdd = () => import('./views/Goods/add.vue')
-const  GoodsEdit = () => import('./views/Goods/edit.vue')
+const  Goods = () => import('./views/Admin/Goods/index.vue')
+const  GoodsAdd = () => import('./views/Admin/Goods/add.vue')
+const  GoodsEdit = () => import('./views/Admin/Goods/edit.vue')
 
 // 商品栏目
-const  GoodsCat = () => import('./views/GoodsCat/index.vue')
-const  GoodsCatAdd = () => import('./views/GoodsCat/add.vue')
-const  GoodsCatEdit = () => import('./views/GoodsCat/edit.vue')
+const  GoodsCat = () => import('./views/Admin/GoodsCat/index.vue')
+const  GoodsCatAdd = () => import('./views/Admin/GoodsCat/add.vue')
+const  GoodsCatEdit = () => import('./views/Admin/GoodsCat/edit.vue')
 
 // 商品品牌
-const  GoodsBrand = () => import('./views/GoodsBrand/index.vue')
-const  GoodsBrandAdd = () => import('./views/GoodsBrand/add.vue')
-const  GoodsBrandEdit = () => import('./views/GoodsBrand/edit.vue')
+const  GoodsBrand = () => import('./views/Admin/GoodsBrand/index.vue')
+const  GoodsBrandAdd = () => import('./views/Admin/GoodsBrand/add.vue')
+const  GoodsBrandEdit = () => import('./views/Admin/GoodsBrand/edit.vue')
 
 // 店铺幻灯片
-const  GoodsSlide = () => import('./views/GoodsSlide/index.vue')
-const  GoodsSlideAdd = () => import('./views/GoodsSlide/add.vue')
-const  GoodsSlideEdit = () => import('./views/GoodsSlide/edit.vue')
+const  GoodsSlide = () => import('./views/Admin/GoodsSlide/index.vue')
+const  GoodsSlideAdd = () => import('./views/Admin/GoodsSlide/add.vue')
+const  GoodsSlideEdit = () => import('./views/Admin/GoodsSlide/edit.vue')
 
 // 快递模版
-const  GoodsDelivery = () => import('./views/GoodsDelivery/index.vue')
-const  GoodsDeliveryAdd = () => import('./views/GoodsDelivery/add.vue')
-const  GoodsDeliveryEdit = () => import('./views/GoodsDelivery/edit.vue')
+const  GoodsDelivery = () => import('./views/Admin/GoodsDelivery/index.vue')
+const  GoodsDeliveryAdd = () => import('./views/Admin/GoodsDelivery/add.vue')
+const  GoodsDeliveryEdit = () => import('./views/Admin/GoodsDelivery/edit.vue')
 
 // 地区代理
-const  GoodsArea = () => import('./views/GoodsArea/index.vue')
+const  GoodsArea = () => import('./views/Admin/GoodsArea/index.vue')
 
 // 商品评论
-const  GoodsComment = () => import('./views/GoodsComment/index.vue')
+const  GoodsComment = () => import('./views/Admin/GoodsComment/index.vue')
 
 // 订单列表
-const  Order = () => import('./views/Order/index.vue')
-const  OrderInfo = () => import('./views/Order/info.vue')
+const  Order = () => import('./views/Admin/Order/index.vue')
+const  OrderInfo = () => import('./views/Admin/Order/info.vue')
 
 // 售后服务
-const  GoodsServerEdit = () => import('./views/GoodsServer/edit.vue')
+const  GoodsServerEdit = () => import('./views/Admin/GoodsServer/edit.vue')
 
 // 店铺信息
-const  GoodsShop = () => import('./views/GoodsShop/edit.vue')
+const  GoodsShop = () => import('./views/Admin/GoodsShop/edit.vue')
 
 // 微信公众号
 // 商品栏目
-const  WechatCat = () => import('./views/WechatCat/index.vue')
-const  WechatCatAdd = () => import('./views/WechatCat/add.vue')
-const  WechatCatEdit = () => import('./views/WechatCat/edit.vue')
+const  WechatCat = () => import('./views/Admin/WechatCat/index.vue')
+const  WechatCatAdd = () => import('./views/Admin/WechatCat/add.vue')
+const  WechatCatEdit = () => import('./views/Admin/WechatCat/edit.vue')
+
+
+/**********************************
+ * 商家后台
+***********/
+
+const  SellerLogin = () => import('./views/Seller/login.vue')
+const  SellerIndex = () => import('./views/Seller/index.vue')
+const  SellerDefault = () => import('./views/Seller/default2.vue')
+
+// 商品管理
+const  SellerGoods = () => import('./views/Seller/Goods/index.vue')
+const  SellerGoodsAdd = () => import('./views/Seller/Goods/add.vue')
+const  SellerGoodsEdit = () => import('./views/Seller/Goods/edit.vue')
+
+// 仓库管理
+const  SellerWarehouse = () => import('./views/Seller/Warehouse/index.vue')
+const  SellerWarehouseAdd = () => import('./views/Seller/Warehouse/add.vue')
+const  SellerWarehouseEdit = () => import('./views/Seller/Warehouse/edit.vue')
+
+
 
 
 
@@ -223,6 +244,28 @@ export default new Router({
 
 
       // {path:'/Admin/list',name:'list',component:List}, // 模版
+    ]},
+
+    /****************************************
+     * 商家后台
+    **************************/
+
+    // 商家登录
+    {path:'/Seller/login',name:'seller_login',component:SellerLogin},
+    {path:'/Seller/index',name:'seller_index',component:SellerIndex,children:[
+      {path:'/Seller/index',name:'seller_default',component:SellerDefault}, // 默认后台首页
+
+      // 商品管理
+      {path:'/Seller/goods/index',name:'seller_goods_index',component:SellerGoods}, 
+      {path:'/Seller/goods/add',name:'seller_goods_add',component:SellerGoodsAdd},
+      {path:'/Seller/goods/edit/edit/:id',name:'seller_goods_edit',component:SellerGoodsEdit},
+
+      // 仓库管理
+      {path:'/Seller/warehouse/index',name:'seller_goods_index',component:SellerWarehouse}, 
+      {path:'/Seller/warehouse/add',name:'seller_goods_add',component:SellerWarehouseAdd},
+      {path:'/Seller/warehouse/edit/edit/:id',name:'seller_goods_edit',component:SellerWarehouseEdit},
+
+
     ]},
   ]
 })
