@@ -4,7 +4,7 @@
 			<router-link class="admin_fff_btn" :to="{name:'seller_goods_add'}"><el-button type="primary" icon="el-icon-plus">添加</el-button></router-link>
 
 			<!-- <input class="index_search_input" type="text" placeholder="输入搜索内容"> -->
-			<el-input  class="search_input" size="small" v-model="title" placeholder="请输入标题"></el-input>
+			<el-input  class="search_input" style="width:200px;" size="small" v-model="title" placeholder="请输入标题"></el-input>
 <!-- 
 			<el-select style="margin-right: 10px;" v-model="is_sale" placeholder="请选择" size="small">
 			    <el-option key="" label="是否上架" value=""></el-option>
@@ -161,5 +161,5 @@
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style>
 </style>

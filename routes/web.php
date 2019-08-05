@@ -32,3 +32,4 @@ Route::view('/Admin/cat/edit','index');
 
 Route::view('/Seller/login','index');
 Route::view('/Seller/index','index');
+Route::view('/Seller/goods/index','index');

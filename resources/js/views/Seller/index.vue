@@ -246,9 +246,9 @@ export default {
 
 		// 	});
 		// }
-		
-		this.$get(this.ROOT_URL + "Admin/index").then(function(res){
-			_this.cat = res.cat;
+		var _this = this;
+		this.$get(this.ROOT_URL + "Seller/index").then(function(res){
+			// _this.cat = res.cat;
 			_this.user = res.user;
 		});
 	},

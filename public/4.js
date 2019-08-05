@@ -1,177 +1,14 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[4],{
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Seller/Warehouse/add.vue?vue&type=script&lang=js&":
-/*!**************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/Seller/Warehouse/add.vue?vue&type=script&lang=js& ***!
-  \**************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Seller/login.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/Seller/login.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -198,323 +35,123 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'login',
   data: function data() {
     return {
-      title: '',
-      goods_no: '',
-      sub_title: '',
-      content: '',
-      num: '9999',
-      is_hot: '0',
-      is_top: '0',
-      is_sale: '1',
-      brand_id: '0',
-      price: '0',
-      thumb: '',
-      parent: null,
-      brand_parent: null,
-      cid: '0',
-      fileList2: [],
-      tabPosition: 'left',
-      selects: 'first',
-      attr: [],
-      attrPrice: [],
-      user_id: '',
-      goods_id: '',
-      is_add_goods: true
+      username: '',
+      password: '',
+      isCheck: true
     };
   },
   methods: {
-    submit: function submit() {
-      var _this = this;
+    // 登录
+    login: function login() {
+      // 重新赋值vm使 axios可用vue实例
+      var vm = this;
 
-      this.$post(this.ROOT_URL + 'Seller/goods/add', {
-        title: this.title,
-        goods_no: this.goods_no,
-        brand_id: this.brand_id,
-        price: this.price,
-        content: this.content,
-        is_hot: this.is_hot,
-        is_top: this.is_top,
-        num: this.num,
-        thumb: this.thumb,
-        cid: this.cid,
-        user_id: this.user_id,
-        sub_title: this.sub_title,
-        is_sale: this.is_sale
+      if (!this.isCheck) {
+        this.$message.error('请先认真阅读本站协议！');
+        return;
+      }
+
+      if (this.username == '' || this.password == '') {
+        this.$message.error('用户名和密码不能为空！');
+        return;
+      }
+
+      this.$post(this.ROOT_URL + 'Seller/login', {
+        username: this.username,
+        password: this.password
       }).then(function (res) {
-        _this.$message({
-          message: '恭喜你，添加成功！',
-          type: 'success'
-        });
+        if (res.code == 200) {
+          console.log(res); // 存储用户的token
 
-        _this.$router.go(-1);
-      });
-    },
-    handleRemove: function handleRemove(file, fileList) {
-      // console.log(file, fileList);
-      this.thumb = '';
-
-      for (var i = 0; i < fileList.length; i++) {
-        console.log(fileList[i]);
-
-        if (this.thumb == '') {
-          this.thumb = fileList[i].response.thumb_path;
+          localStorage.setItem('token', res.token);
+          vm.$message({
+            message: '登录成功！',
+            type: 'success'
+          });
+          vm.$router.push({
+            name: 'seller_default'
+          });
         } else {
-          this.thumb = this.thumb + ',' + fileList[i].response.thumb_path;
-        }
-      }
-    },
-    onSuccess: function onSuccess(e) {
-      if (this.thumb == '') {
-        this.thumb = e.thumb_path;
-      } else {
-        this.thumb = this.thumb + ',' + e.thumb_path;
-      }
-    },
-    nextto: function nextto() {
-      var _this = this;
-
-      this.$post(this.ROOT_URL + 'Seller/goods/add', {
-        title: this.title,
-        goods_no: this.goods_no,
-        brand_id: this.brand_id,
-        price: this.price,
-        content: this.content,
-        is_hot: this.is_hot,
-        is_top: this.is_top,
-        thumb: this.thumb,
-        cid: this.cid,
-        user_id: this.user_id,
-        sub_title: this.sub_title,
-        is_sale: this.is_sale,
-        num: this.num
-      }).then(function (res) {
-        _this.$message({
-          message: '恭喜你，添加成功！',
-          type: 'success'
-        });
-
-        _this.goods_id = res;
-      });
-      this.selects = 'sec';
-      this.is_add_goods = false;
-    },
-    nextth: function nextth() {
-      var _this = this;
-
-      var nexts = true;
-
-      if (this.attr.length == 0) {
-        nexts = false;
-        this.$message({
-          message: '下一步异常，认真填写规格！',
-          type: 'error'
-        });
-      }
-
-      var attr = [];
-
-      for (var i = 0; i < this.attr.length; i++) {
-        var guige = this.$refs.attr[i].$el.children[1].children[0].childNodes[1].value;
-        var canshu = this.$refs.attr[i].$el.children[3].children[0].childNodes[1].value;
-
-        if (guige == '' || canshu == '') {
-          this.$message({
-            message: '下一步异常，认真填写规格！',
+          vm.$message({
+            message: res.message,
             type: 'error'
           });
-          nexts = false;
-          break;
-        } else {
-          attr.push({
-            guige: guige,
-            canshu: canshu
-          });
         }
-      } // console.log(attr);
-
-
-      if (nexts) {
-        var f = [];
-        var s = [];
-        var attrList = [];
-
-        for (var i = 0; i < attr.length; i++) {
-          s = attr[i].canshu.split(',');
-          f = this.getMn(f, s);
-        } // this.attrPrice = f;
-
-
-        for (var x = 0; x < f.length; x++) {
-          this.attrPrice.push({
-            name: f[x],
-            price: '',
-            val: ''
-          });
-        }
-
-        var guige = '';
-        var canshu = '';
-        var goods_id = '';
-
-        for (var g = 0; g < attr.length; g++) {
-          if (guige == '') {
-            guige = attr[g].guige;
-          } else {
-            guige = guige + ':' + attr[g].guige;
-          }
-
-          if (canshu == '') {
-            canshu = attr[g].canshu;
-          } else {
-            canshu = canshu + ':' + attr[g].canshu;
-          }
-
-          if (goods_id == '') {
-            goods_id = this.goods_id;
-          } else {
-            goods_id = goods_id + ':' + this.goods_id;
-          }
-        }
-
-        if (this.goods_id == '') {
-          this.$message({
-            message: '非法异常，请刷新后重新添加商品！',
-            type: 'error'
-          });
-        } else {
-          this.$post(this.ROOT_URL + 'Seller/goods_attr/add', {
-            goods_id: goods_id,
-            name: guige,
-            val: canshu
-          }).then(function (res) {
-            _this.$message({
-              message: '恭喜你，规格添加成功！',
-              type: 'success'
-            });
-          });
-        }
-
-        this.selects = 'thr';
-      }
-    },
-    nextfo: function nextfo() {
-      // console.log(this.$refs.spec);
-      // console.log(this.$refs.spec[0].$el.children[0].children[0].childNodes[1].innerText);
-      // console.log(this.$refs.spec[0].$el.children[2].children[0].childNodes[1].value);
-      // console.log(this.$refs.spec[0].$el.children[4].children[0].childNodes[1].value);
-      // console.log(this.attrPrice);
-      var _this = this;
-
-      var sku = '';
-      var price = '';
-      var num = '';
-      var goods_id = '';
-
-      for (var i = 0; i < this.attrPrice.length; i++) {
-        if (sku == '') {
-          sku = this.$refs.spec[i].$el.children[0].children[0].childNodes[1].innerText;
-        } else {
-          sku = sku + ':' + this.$refs.spec[i].$el.children[0].children[0].childNodes[1].innerText;
-        }
-
-        if (price == '') {
-          price = this.$refs.spec[i].$el.children[2].children[0].childNodes[1].value;
-        } else {
-          price = price + ':' + this.$refs.spec[i].$el.children[2].children[0].childNodes[1].value;
-        }
-
-        if (num == '') {
-          num = this.$refs.spec[i].$el.children[4].children[0].childNodes[1].value;
-        } else {
-          num = num + ':' + this.$refs.spec[i].$el.children[4].children[0].childNodes[1].value;
-        }
-
-        if (goods_id == '') {
-          goods_id = this.goods_id;
-        } else {
-          goods_id = goods_id + ':' + this.goods_id;
-        }
-      }
-
-      this.$post(this.ROOT_URL + 'Seller/goods_spec/add', {
-        goods_id: goods_id,
-        name: sku,
-        price: price,
-        num: num
-      }).then(function (res) {
-        _this.$message({
-          message: '恭喜你，规格添加成功！',
-          type: 'success'
-        });
-
-        _this.$router.go(-1);
       });
-    },
-    addAttr: function addAttr() {
-      this.attr.push({});
-    },
-    delAttr: function delAttr(k) {
-      console.log(k);
-      this.attr.splice(k, 1);
-    },
-    getMn: function getMn(m, n) {
-      var arr = [];
-
-      if (m.length == 0) {
-        return n;
-      }
-
-      for (var i = 0; i < m.length; i++) {
-        for (var a = 0; a < n.length; a++) {
-          arr.push(m[i] + ',' + n[a]);
-        }
-      }
-
-      return arr;
-    },
-    getToken: function getToken() {
-      return localStorage.getItem('token');
     }
   },
-  created: function created() {},
-  mounted: function mounted() {
-    var E = __webpack_require__(/*! wangeditor */ "./node_modules/wangeditor/release/wangEditor.js"); // 使用 npm 安装
+  created: function created() {
+    var vm = this; // 判断token是否失效
 
-
-    E = new E('#editor');
-
-    var _this = this;
-
-    E.customConfig.onchange = function (html) {
-      _this.content = html;
-    };
-
-    E.customConfig.uploadImgServer = this.ROOT_URL + 'Seller/Auto/content_upload';
-    E.customConfig.uploadFileName = 'file';
-    E.customConfig.uploadImgMaxSize = 3 * 1024 * 1024;
-    E.create();
-
-    var _this = this;
-
-    _this.$get(_this.ROOT_URL + "Seller/goods/add").then(function (res) {
-      _this.brand_parent = res.goods_brand;
-      _this.parent = res.goods_cat;
-      _this.user_id = res.user_id;
+    this.$post(this.ROOT_URL + 'Seller/checkUser').then(function (res) {
+      if (res.code == 200) {
+        vm.$router.push({
+          name: 'seller_default'
+        });
+      }
     });
-  },
-  handleRemove: function handleRemove(file, fileList) {
-    console.log(file, fileList);
   }
 });
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Seller/Warehouse/add.vue?vue&type=template&id=005307c4&":
-/*!******************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/Seller/Warehouse/add.vue?vue&type=template&id=005307c4& ***!
-  \******************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Seller/login.vue?vue&type=style&index=0&id=f3560610&scoped=true&lang=css&":
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/Seller/login.vue?vue&type=style&index=0&id=f3560610&scoped=true&lang=css& ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var escape = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/url/escape.js */ "./node_modules/css-loader/lib/url/escape.js");
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.login_bg[data-v-f3560610]{\r\nbackground:url(" + escape(__webpack_require__(/*! ../../assets/login_bg.svg */ "./resources/js/assets/login_bg.svg")) + ");background-position: center;background-size: 100%;height:100%;background-color:#f1f1f1\r\n;}\n.login_black_hg[data-v-f3560610]{background:#fff;width:400px;border-radius:6px;padding:0px 40px 20px 40px;box-sizing:border-box;\r\n-moz-box-sizing:border-box; /* Firefox */\r\n-webkit-box-sizing:border-box; /* Safari */\r\nposition:absolute;\r\ntop:50%;\r\nleft:50%;\r\nmargin-left:-200px;margin-top:-200px;\n}\n.login_input[data-v-f3560610]{margin:20px 0 20px 0 ;}\n.head_log[data-v-f3560610]{margin-left:47px;margin-top:-46px;}\n.login_btn[data-v-f3560610]{margin-top:20px;width:100%;font-size:14px;}\n.must_rad[data-v-f3560610]{font-size:12px;}\r\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Seller/login.vue?vue&type=style&index=0&id=f3560610&scoped=true&lang=css&":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/Seller/login.vue?vue&type=style&index=0&id=f3560610&scoped=true&lang=css& ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./login.vue?vue&type=style&index=0&id=f3560610&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Seller/login.vue?vue&type=style&index=0&id=f3560610&scoped=true&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Seller/login.vue?vue&type=template&id=f3560610&scoped=true&":
+/*!**********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/Seller/login.vue?vue&type=template&id=f3560610&scoped=true& ***!
+  \**********************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -526,925 +163,177 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "index_main" }, [
+  return _c("div", { staticClass: "login_bg" }, [
     _c(
       "div",
-      { staticClass: "main_btn_left" },
+      { staticClass: "login_black_hg" },
       [
+        _vm._m(0),
+        _vm._v(" "),
         _c(
-          "el-button",
-          {
-            staticClass: "main_del_right",
-            attrs: { icon: "el-icon-back" },
-            on: {
-              click: function($event) {
-                return _vm.$router.go(-1)
+          "div",
+          { staticClass: "form-group" },
+          [
+            _c("el-input", {
+              attrs: { size: "small", placeholder: "用户名" },
+              nativeOn: {
+                keyup: function($event) {
+                  if (
+                    !$event.type.indexOf("key") &&
+                    _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+                  ) {
+                    return null
+                  }
+                  return _vm.login($event)
+                }
+              },
+              model: {
+                value: _vm.username,
+                callback: function($$v) {
+                  _vm.username = $$v
+                },
+                expression: "username"
               }
-            }
-          },
-          [_vm._v("返回")]
+            })
+          ],
+          1
         ),
         _vm._v(" "),
-        _c("div", { staticClass: "index_main_title" }, [_vm._v("商品添加")])
-      ],
-      1
-    ),
-    _vm._v(" "),
-    _c("div", { staticClass: "unline" }),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "main_content" },
-      [
         _c(
-          "el-tabs",
-          {
-            attrs: { "tab-position": _vm.tabPosition },
-            model: {
-              value: _vm.selects,
-              callback: function($$v) {
-                _vm.selects = $$v
+          "div",
+          { staticClass: "form-group" },
+          [
+            _c("el-input", {
+              staticClass: "login_input",
+              attrs: { type: "password", size: "small", placeholder: "密码" },
+              nativeOn: {
+                keyup: function($event) {
+                  if (
+                    !$event.type.indexOf("key") &&
+                    _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+                  ) {
+                    return null
+                  }
+                  return _vm.login($event)
+                }
               },
-              expression: "selects"
-            }
-          },
+              model: {
+                value: _vm.password,
+                callback: function($$v) {
+                  _vm.password = $$v
+                },
+                expression: "password"
+              }
+            })
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "form-group", staticStyle: { "font-size": "12px" } },
           [
             _c(
-              "el-tab-pane",
-              { attrs: { label: "商品信息", name: "first" } },
+              "el-checkbox",
+              {
+                attrs: { name: "isCheck", label: "1" },
+                model: {
+                  value: _vm.isCheck,
+                  callback: function($$v) {
+                    _vm.isCheck = $$v
+                  },
+                  expression: "isCheck"
+                }
+              },
               [
-                _c(
-                  "el-row",
-                  { attrs: { gutter: 20 } },
-                  [
-                    _c("el-col", { attrs: { span: 3 } }, [
-                      _c("div", { staticClass: "input_lable" }, [
-                        _vm._v("标题")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "el-col",
-                      { attrs: { span: 10 } },
-                      [
-                        _c("el-input", {
-                          attrs: { size: "small", placeholder: "请输入标题" },
-                          model: {
-                            value: _vm.title,
-                            callback: function($$v) {
-                              _vm.title = $$v
-                            },
-                            expression: "title"
-                          }
-                        })
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c("el-col", { attrs: { span: 11 } }, [
-                      _c("div", { staticClass: "input_notice" })
-                    ])
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "unline2" }),
-                _vm._v(" "),
-                _c(
-                  "el-row",
-                  { attrs: { gutter: 20 } },
-                  [
-                    _c("el-col", { attrs: { span: 3 } }, [
-                      _c("div", { staticClass: "input_lable" }, [
-                        _vm._v("副标题")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "el-col",
-                      { attrs: { span: 10 } },
-                      [
-                        _c("el-input", {
-                          attrs: { size: "small", placeholder: "请输入副标题" },
-                          model: {
-                            value: _vm.sub_title,
-                            callback: function($$v) {
-                              _vm.sub_title = $$v
-                            },
-                            expression: "sub_title"
-                          }
-                        })
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c("el-col", { attrs: { span: 11 } }, [
-                      _c("div", { staticClass: "input_notice" })
-                    ])
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "unline2" }),
-                _vm._v(" "),
-                _c(
-                  "el-row",
-                  { attrs: { gutter: 20 } },
-                  [
-                    _c("el-col", { attrs: { span: 3 } }, [
-                      _c("div", { staticClass: "input_lable" }, [
-                        _vm._v("商品编码")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "el-col",
-                      { attrs: { span: 10 } },
-                      [
-                        _c("el-input", {
-                          attrs: { size: "small", placeholder: "QW-000001" },
-                          model: {
-                            value: _vm.goods_no,
-                            callback: function($$v) {
-                              _vm.goods_no = $$v
-                            },
-                            expression: "goods_no"
-                          }
-                        })
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c("el-col", { attrs: { span: 11 } }, [
-                      _c("div", { staticClass: "input_notice" })
-                    ])
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "unline2" }),
-                _vm._v(" "),
-                _c(
-                  "el-row",
-                  { attrs: { gutter: 20 } },
-                  [
-                    _c("el-col", { attrs: { span: 3 } }, [
-                      _c("div", { staticClass: "input_lable" }, [
-                        _vm._v("品牌")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "el-col",
-                      { attrs: { span: 10 } },
-                      [
-                        _c(
-                          "el-select",
-                          {
-                            attrs: { size: "small", placeholder: "请选择" },
-                            model: {
-                              value: _vm.brand_id,
-                              callback: function($$v) {
-                                _vm.brand_id = $$v
-                              },
-                              expression: "brand_id"
-                            }
-                          },
-                          [
-                            _c("el-option", {
-                              attrs: { value: "0", label: "无品牌" }
-                            }),
-                            _vm._v(" "),
-                            _vm._l(_vm.brand_parent, function(v) {
-                              return _c("el-option", {
-                                attrs: { value: v.id, label: v.name }
-                              })
-                            })
-                          ],
-                          2
-                        )
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c("el-col", { attrs: { span: 11 } }, [
-                      _c("div", { staticClass: "input_notice" })
-                    ])
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "unline2" }),
-                _vm._v(" "),
-                _c(
-                  "el-row",
-                  { attrs: { gutter: 20 } },
-                  [
-                    _c("el-col", { attrs: { span: 3 } }, [
-                      _c("div", { staticClass: "input_lable" }, [
-                        _vm._v("父栏目")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "el-col",
-                      { attrs: { span: 10 } },
-                      [
-                        _c(
-                          "el-select",
-                          {
-                            attrs: { size: "small", placeholder: "请选择" },
-                            model: {
-                              value: _vm.cid,
-                              callback: function($$v) {
-                                _vm.cid = $$v
-                              },
-                              expression: "cid"
-                            }
-                          },
-                          [
-                            _c("el-option", {
-                              attrs: { value: "0", label: "无栏目" }
-                            }),
-                            _vm._v(" "),
-                            _vm._l(_vm.parent, function(v) {
-                              return _c("el-option", {
-                                attrs: { value: v.id, label: v.name }
-                              })
-                            })
-                          ],
-                          2
-                        )
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c("el-col", { attrs: { span: 11 } }, [
-                      _c("div", { staticClass: "input_notice" })
-                    ])
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "unline2" }),
-                _vm._v(" "),
-                _c(
-                  "el-row",
-                  { attrs: { gutter: 20 } },
-                  [
-                    _c("el-col", { attrs: { span: 3 } }, [
-                      _c("div", { staticClass: "input_lable" }, [
-                        _vm._v("缩略图")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "el-col",
-                      { attrs: { span: 19 } },
-                      [
-                        _c(
-                          "el-upload",
-                          {
-                            attrs: {
-                              action:
-                                _vm.ROOT_URL +
-                                "Admin/goods_brand/thumb?token=" +
-                                _vm.getToken(),
-                              "list-type": "picture-card",
-                              "on-success": _vm.onSuccess,
-                              "on-remove": _vm.handleRemove
-                            }
-                          },
-                          [_c("i", { staticClass: "el-icon-plus" })]
-                        )
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c("el-col", { attrs: { span: 2 } }, [
-                      _c("div", { staticClass: "input_notice" })
-                    ])
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "unline2" }),
-                _vm._v(" "),
-                _c(
-                  "el-row",
-                  { attrs: { gutter: 20 } },
-                  [
-                    _c("el-col", { attrs: { span: 3 } }, [
-                      _c("div", { staticClass: "input_lable" }, [
-                        _vm._v("价格")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "el-col",
-                      { attrs: { span: 10 } },
-                      [
-                        _c("el-input", {
-                          attrs: {
-                            size: "small",
-                            type: "number",
-                            placeholder: "0.00"
-                          },
-                          model: {
-                            value: _vm.price,
-                            callback: function($$v) {
-                              _vm.price = $$v
-                            },
-                            expression: "price"
-                          }
-                        })
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c("el-col", { attrs: { span: 11 } }, [
-                      _c("div", { staticClass: "input_notice" })
-                    ])
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "unline2" }),
-                _vm._v(" "),
-                _c(
-                  "el-row",
-                  { attrs: { gutter: 20 } },
-                  [
-                    _c("el-col", { attrs: { span: 3 } }, [
-                      _c("div", { staticClass: "input_lable" }, [
-                        _vm._v("库存")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "el-col",
-                      { attrs: { span: 10 } },
-                      [
-                        _c("el-input", {
-                          attrs: {
-                            size: "small",
-                            type: "number",
-                            placeholder: "0"
-                          },
-                          model: {
-                            value: _vm.num,
-                            callback: function($$v) {
-                              _vm.num = $$v
-                            },
-                            expression: "num"
-                          }
-                        })
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c("el-col", { attrs: { span: 11 } }, [
-                      _c("div", { staticClass: "input_notice" })
-                    ])
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "unline2" }),
-                _vm._v(" "),
-                _c(
-                  "el-row",
-                  { attrs: { gutter: 20 } },
-                  [
-                    _c("el-col", { attrs: { span: 3 } }, [
-                      _c("div", { staticClass: "input_lable" }, [
-                        _vm._v("内容")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("el-col", { attrs: { span: 18 } }, [
-                      _c("div", { attrs: { id: "editor" } }),
-                      _c("textarea", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.content,
-                            expression: "content"
-                          }
-                        ],
-                        staticStyle: { display: "none" },
-                        domProps: { value: _vm.content },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.content = $event.target.value
-                          }
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("el-col", { attrs: { span: 13 } }, [
-                      _c("div", { staticClass: "input_notice" })
-                    ])
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "unline2" }),
-                _vm._v(" "),
-                _c(
-                  "el-row",
-                  { attrs: { gutter: 20 } },
-                  [
-                    _c("el-col", { attrs: { span: 3 } }, [
-                      _c("div", { staticClass: "input_lable" }, [
-                        _vm._v("上架")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "el-col",
-                      { attrs: { span: 10 } },
-                      [
-                        _c(
-                          "el-select",
-                          {
-                            attrs: { size: "small", placeholder: "请选择" },
-                            model: {
-                              value: _vm.is_sale,
-                              callback: function($$v) {
-                                _vm.is_sale = $$v
-                              },
-                              expression: "is_sale"
-                            }
-                          },
-                          [
-                            _c("el-option", {
-                              attrs: { value: "0", label: "否" }
-                            }),
-                            _vm._v(" "),
-                            _c("el-option", {
-                              attrs: { value: "1", label: "是" }
-                            })
-                          ],
-                          1
-                        )
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c("el-col", { attrs: { span: 11 } }, [
-                      _c("div", { staticClass: "input_notice" })
-                    ])
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "unline2" }),
-                _vm._v(" "),
-                _c(
-                  "el-row",
-                  { attrs: { gutter: 20 } },
-                  [
-                    _c("el-col", { attrs: { span: 3 } }, [
-                      _c("div", { staticClass: "input_lable" }, [
-                        _vm._v("热门")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "el-col",
-                      { attrs: { span: 10 } },
-                      [
-                        _c(
-                          "el-select",
-                          {
-                            attrs: { size: "small", placeholder: "请选择" },
-                            model: {
-                              value: _vm.is_hot,
-                              callback: function($$v) {
-                                _vm.is_hot = $$v
-                              },
-                              expression: "is_hot"
-                            }
-                          },
-                          [
-                            _c("el-option", {
-                              attrs: { value: "0", label: "否" }
-                            }),
-                            _vm._v(" "),
-                            _c("el-option", {
-                              attrs: { value: "1", label: "是" }
-                            })
-                          ],
-                          1
-                        )
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c("el-col", { attrs: { span: 11 } }, [
-                      _c("div", { staticClass: "input_notice" })
-                    ])
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "unline2" }),
-                _vm._v(" "),
-                _c(
-                  "el-row",
-                  { attrs: { gutter: 20 } },
-                  [
-                    _c("el-col", { attrs: { span: 3 } }, [
-                      _c("div", { staticClass: "input_lable" }, [
-                        _vm._v("置顶")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "el-col",
-                      { attrs: { span: 10 } },
-                      [
-                        _c(
-                          "el-select",
-                          {
-                            attrs: { size: "small", placeholder: "请选择" },
-                            model: {
-                              value: _vm.is_top,
-                              callback: function($$v) {
-                                _vm.is_top = $$v
-                              },
-                              expression: "is_top"
-                            }
-                          },
-                          [
-                            _c("el-option", {
-                              attrs: { value: "0", label: "否" }
-                            }),
-                            _vm._v(" "),
-                            _c("el-option", {
-                              attrs: { value: "1", label: "是" }
-                            })
-                          ],
-                          1
-                        )
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c("el-col", { attrs: { span: 11 } }, [
-                      _c("div", { staticClass: "input_notice" })
-                    ])
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "unline2" }),
-                _vm._v(" "),
-                _c(
-                  "el-row",
-                  { attrs: { gutter: 20 } },
-                  [
-                    _c("el-col", { attrs: { span: 3 } }, [_vm._v(" ")]),
-                    _vm._v(" "),
-                    _c(
-                      "el-col",
-                      { attrs: { span: 1.5 } },
-                      [
-                        _c(
-                          "el-button",
-                          {
-                            attrs: { type: "primary" },
-                            on: { click: _vm.submit }
-                          },
-                          [_vm._v("提 交")]
-                        )
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "el-col",
-                      { attrs: { span: 2 } },
-                      [
-                        _vm.is_add_goods
-                          ? _c(
-                              "el-button",
-                              {
-                                attrs: { type: "success" },
-                                on: { click: _vm.nextto }
-                              },
-                              [_vm._v("下一步")]
-                            )
-                          : _vm._e()
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c("el-col", { attrs: { span: 17 } }, [
-                      _c("div", { staticClass: "input_notice" })
-                    ])
-                  ],
-                  1
-                )
+                _c("font", { staticStyle: { "font-size": "13px" } }, [
+                  _vm._v("我已同意")
+                ])
               ],
               1
             ),
-            _vm._v(" "),
+            _vm._v("\n\t\t\t    "),
             _c(
-              "el-tab-pane",
-              { attrs: { label: "规格信息", name: "sec" } },
-              [
-                _vm._l(_vm.attr, function(v, k) {
-                  return _c(
-                    "div",
-                    [
-                      _c(
-                        "el-row",
-                        { ref: "attr", refInFor: true, attrs: { gutter: 20 } },
-                        [
-                          _c("el-col", { attrs: { span: 3 } }, [
-                            _c("div", { staticClass: "input_lable" }, [
-                              _vm._v("规格"),
-                              k > 0
-                                ? _c("span", [_vm._v(" - " + _vm._s(k))])
-                                : _vm._e()
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c(
-                            "el-col",
-                            { attrs: { span: 3 } },
-                            [
-                              _c("el-input", {
-                                attrs: {
-                                  size: "small",
-                                  placeholder: "如：颜色"
-                                },
-                                model: {
-                                  value: v.key,
-                                  callback: function($$v) {
-                                    _vm.$set(v, "key", $$v)
-                                  },
-                                  expression: "v.key"
-                                }
-                              })
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c("el-col", { attrs: { span: 2 } }, [
-                            _c("div", { staticClass: "input_lable" }, [
-                              _vm._v("参数"),
-                              k > 0
-                                ? _c("span", [_vm._v(" - " + _vm._s(k))])
-                                : _vm._e()
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c(
-                            "el-col",
-                            { attrs: { span: 5 } },
-                            [
-                              _c("el-input", {
-                                attrs: {
-                                  size: "small",
-                                  placeholder: "如：红,蓝"
-                                },
-                                model: {
-                                  value: v.val,
-                                  callback: function($$v) {
-                                    _vm.$set(v, "val", $$v)
-                                  },
-                                  expression: "v.val"
-                                }
-                              })
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "el-col",
-                            { attrs: { span: 2 } },
-                            [
-                              _c(
-                                "el-button",
-                                {
-                                  attrs: { type: "danger" },
-                                  on: {
-                                    click: function($event) {
-                                      return _vm.delAttr(k)
-                                    }
-                                  }
-                                },
-                                [_vm._v("删除")]
-                              )
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c("el-col", { attrs: { span: 8 } }, [
-                            _c("div", { staticClass: "input_notice" })
-                          ])
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "unline2" })
-                    ],
-                    1
-                  )
-                }),
-                _vm._v(" "),
-                _c(
-                  "el-row",
-                  { attrs: { gutter: 20 } },
-                  [
-                    _c("el-col", { attrs: { span: 3 } }, [_vm._v(" ")]),
-                    _vm._v(" "),
-                    _c(
-                      "el-col",
-                      { attrs: { span: 1.5 } },
-                      [
-                        _c(
-                          "el-button",
-                          {
-                            attrs: { type: "primary" },
-                            on: { click: _vm.addAttr }
-                          },
-                          [_vm._v("增加规格")]
-                        )
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "el-col",
-                      { attrs: { span: 1.5 } },
-                      [
-                        _c(
-                          "el-button",
-                          {
-                            attrs: { type: "success" },
-                            on: { click: _vm.nextth }
-                          },
-                          [_vm._v("下一步")]
-                        )
-                      ],
-                      1
-                    )
-                  ],
-                  1
-                )
-              ],
-              2
+              "a",
+              {
+                staticClass: "must_rad",
+                attrs: { href: "/index.php/Admin/Test/mustRead" }
+              },
+              [_vm._v("《系统用户使用协议》")]
             ),
-            _vm._v(" "),
-            _c(
-              "el-tab-pane",
-              { attrs: { label: "价格设置", name: "thr" } },
-              [
-                _vm._l(_vm.attrPrice, function(v, k) {
-                  return _c(
-                    "div",
-                    [
-                      _c(
-                        "el-row",
-                        { ref: "spec", refInFor: true, attrs: { gutter: 20 } },
-                        [
-                          _c("el-col", { attrs: { span: 4 } }, [
-                            _c(
-                              "div",
-                              { staticClass: "input_lable" },
-                              [
-                                _vm._v("【SKU】 "),
-                                _c("font", { attrs: { color: "red" } }, [
-                                  _vm._v(_vm._s(v.name))
-                                ])
-                              ],
-                              1
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("el-col", { attrs: { span: 2 } }, [
-                            _c("div", { staticClass: "input_lable" }, [
-                              _vm._v("价格 - ￥")
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c(
-                            "el-col",
-                            { attrs: { span: 3 } },
-                            [
-                              _c("el-input", {
-                                attrs: { size: "small", placeholder: "0.00" },
-                                model: {
-                                  value: v.price,
-                                  callback: function($$v) {
-                                    _vm.$set(v, "price", $$v)
-                                  },
-                                  expression: "v.price"
-                                }
-                              })
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c("el-col", { attrs: { span: 2 } }, [
-                            _c("div", { staticClass: "input_lable" }, [
-                              _vm._v("库存")
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c(
-                            "el-col",
-                            { attrs: { span: 3 } },
-                            [
-                              _c("el-input", {
-                                attrs: { size: "small", placeholder: "" },
-                                model: {
-                                  value: v.num,
-                                  callback: function($$v) {
-                                    _vm.$set(v, "num", $$v)
-                                  },
-                                  expression: "v.num"
-                                }
-                              })
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c("el-col", { attrs: { span: 7 } }, [
-                            _c("div", { staticClass: "input_notice" })
-                          ])
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "unline2" })
-                    ],
-                    1
-                  )
-                }),
-                _vm._v(" "),
-                _c(
-                  "el-row",
-                  { attrs: { gutter: 20 } },
-                  [
-                    _c("el-col", { attrs: { span: 3 } }, [_vm._v(" ")]),
-                    _vm._v(" "),
-                    _c(
-                      "el-col",
-                      { attrs: { span: 1.5 } },
-                      [
-                        _c(
-                          "el-button",
-                          {
-                            attrs: { type: "primary" },
-                            on: { click: _vm.nextfo }
-                          },
-                          [_vm._v("提 交")]
-                        )
-                      ],
-                      1
-                    )
-                  ],
-                  1
-                )
-              ],
-              2
-            )
+            _vm._v("（必读）\n                ")
           ],
           1
+        ),
+        _vm._v(" "),
+        _c(
+          "el-button",
+          {
+            staticClass: "login_btn",
+            attrs: { size: "mini", type: "primary" },
+            on: { click: _vm.login }
+          },
+          [_vm._v("登 录")]
         )
       ],
       1
     )
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h3", { staticClass: "head_log" }, [
+      _c("img", {
+        attrs: { src: __webpack_require__(/*! ../../assets/head-logo.png */ "./resources/js/assets/head-logo.png"), alt: "" }
+      })
+    ])
+  }
+]
 render._withStripped = true
 
 
 
 /***/ }),
 
-/***/ "./resources/js/views/Seller/Warehouse/add.vue":
-/*!*****************************************************!*\
-  !*** ./resources/js/views/Seller/Warehouse/add.vue ***!
-  \*****************************************************/
+/***/ "./resources/js/assets/head-logo.png":
+/*!*******************************************!*\
+  !*** ./resources/js/assets/head-logo.png ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/head-logo.png?08b00b7d2c18da13387d0a29c0c26ed0";
+
+/***/ }),
+
+/***/ "./resources/js/assets/login_bg.svg":
+/*!******************************************!*\
+  !*** ./resources/js/assets/login_bg.svg ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/login_bg.svg?a568162c2e16b799f5d56634d9e23e46";
+
+/***/ }),
+
+/***/ "./resources/js/views/Seller/login.vue":
+/*!*********************************************!*\
+  !*** ./resources/js/views/Seller/login.vue ***!
+  \*********************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _add_vue_vue_type_template_id_005307c4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./add.vue?vue&type=template&id=005307c4& */ "./resources/js/views/Seller/Warehouse/add.vue?vue&type=template&id=005307c4&");
-/* harmony import */ var _add_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./add.vue?vue&type=script&lang=js& */ "./resources/js/views/Seller/Warehouse/add.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _login_vue_vue_type_template_id_f3560610_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./login.vue?vue&type=template&id=f3560610&scoped=true& */ "./resources/js/views/Seller/login.vue?vue&type=template&id=f3560610&scoped=true&");
+/* harmony import */ var _login_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./login.vue?vue&type=script&lang=js& */ "./resources/js/views/Seller/login.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _login_vue_vue_type_style_index_0_id_f3560610_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./login.vue?vue&type=style&index=0&id=f3560610&scoped=true&lang=css& */ "./resources/js/views/Seller/login.vue?vue&type=style&index=0&id=f3560610&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
 
 
 
@@ -1452,51 +341,67 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _add_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _add_vue_vue_type_template_id_005307c4___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _add_vue_vue_type_template_id_005307c4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _login_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _login_vue_vue_type_template_id_f3560610_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _login_vue_vue_type_template_id_f3560610_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
-  null,
+  "f3560610",
   null
   
 )
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/views/Seller/Warehouse/add.vue"
+component.options.__file = "resources/js/views/Seller/login.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/views/Seller/Warehouse/add.vue?vue&type=script&lang=js&":
-/*!******************************************************************************!*\
-  !*** ./resources/js/views/Seller/Warehouse/add.vue?vue&type=script&lang=js& ***!
-  \******************************************************************************/
+/***/ "./resources/js/views/Seller/login.vue?vue&type=script&lang=js&":
+/*!**********************************************************************!*\
+  !*** ./resources/js/views/Seller/login.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_add_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./add.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Seller/Warehouse/add.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_add_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_login_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./login.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Seller/login.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_login_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/views/Seller/Warehouse/add.vue?vue&type=template&id=005307c4&":
-/*!************************************************************************************!*\
-  !*** ./resources/js/views/Seller/Warehouse/add.vue?vue&type=template&id=005307c4& ***!
-  \************************************************************************************/
+/***/ "./resources/js/views/Seller/login.vue?vue&type=style&index=0&id=f3560610&scoped=true&lang=css&":
+/*!******************************************************************************************************!*\
+  !*** ./resources/js/views/Seller/login.vue?vue&type=style&index=0&id=f3560610&scoped=true&lang=css& ***!
+  \******************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_login_vue_vue_type_style_index_0_id_f3560610_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./login.vue?vue&type=style&index=0&id=f3560610&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Seller/login.vue?vue&type=style&index=0&id=f3560610&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_login_vue_vue_type_style_index_0_id_f3560610_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_login_vue_vue_type_style_index_0_id_f3560610_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_login_vue_vue_type_style_index_0_id_f3560610_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_login_vue_vue_type_style_index_0_id_f3560610_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_login_vue_vue_type_style_index_0_id_f3560610_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/js/views/Seller/login.vue?vue&type=template&id=f3560610&scoped=true&":
+/*!****************************************************************************************!*\
+  !*** ./resources/js/views/Seller/login.vue?vue&type=template&id=f3560610&scoped=true& ***!
+  \****************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_add_vue_vue_type_template_id_005307c4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./add.vue?vue&type=template&id=005307c4& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Seller/Warehouse/add.vue?vue&type=template&id=005307c4&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_add_vue_vue_type_template_id_005307c4___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_login_vue_vue_type_template_id_f3560610_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./login.vue?vue&type=template&id=f3560610&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Seller/login.vue?vue&type=template&id=f3560610&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_login_vue_vue_type_template_id_f3560610_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_add_vue_vue_type_template_id_005307c4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_login_vue_vue_type_template_id_f3560610_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

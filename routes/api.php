@@ -186,12 +186,24 @@ Route::namespace('Admin')->prefix('Admin')->group(function(){
  * 商家后端
 **********************/
 Route::namespace('Seller')->prefix('Seller')->group(function(){
-	
+
+	// 视图公共部分 index.vue
+	Route::get('/index','IndexController@index');
+
 	// 登陆接口
 	Route::post('/login', 'LoginController@login');
 	Route::get('/logout', 'LoginController@logout');
 	Route::post('/checkUser', 'LoginController@checkUser');
 	Route::get('/refresh', 'LoginController@refresh'); // 刷新token
+
+	// 商品管理
+	Route::match(['get','post'],'/goods/add', 'GoodsController@add');
+	Route::post('/goods/del', 'GoodsController@del');
+	Route::match(['get','post'],'/goods/edit/{id}', 'GoodsController@edit');
+	Route::post('/goods/index', 'GoodsController@index');
+	Route::match(['OPTIONS','post'],'/goods/thumb', 'GoodsController@thumb');
+
+
 });
 
 

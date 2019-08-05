@@ -74,7 +74,7 @@ axios.interceptors.response.use(function (res) {
               Message.error(err.response.data);
             }else{
               Message.error(err.response.data.message);
-              window.location.href='/#/admin/login';
+              window.location.href='/Seller/login';
             }
           }else{
             Message.error(err.response.statusText+",Code："+err.response.status+"！");
