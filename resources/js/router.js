@@ -119,10 +119,32 @@ const  SellerGoods = () => import('./views/Seller/Goods/index.vue')
 const  SellerGoodsAdd = () => import('./views/Seller/Goods/add.vue')
 const  SellerGoodsEdit = () => import('./views/Seller/Goods/edit.vue')
 
-// 仓库管理
-const  SellerWarehouse = () => import('./views/Seller/Warehouse/index.vue')
-const  SellerWarehouseAdd = () => import('./views/Seller/Warehouse/add.vue')
-const  SellerWarehouseEdit = () => import('./views/Seller/Warehouse/edit.vue')
+// 订单列表
+const  SellerOrder = () => import('./views/Seller/Order/index.vue')
+const  SellerOrderInfo = () => import('./views/Seller/Order/info.vue')
+
+// 商品评论
+const  SellerGoodsComment = () => import('./views/Seller/GoodsComment/index.vue')
+
+// 快递模版
+const  SellerGoodsDelivery = () => import('./views/Seller/GoodsDelivery/index.vue')
+const  SellerGoodsDeliveryAdd = () => import('./views/Seller/GoodsDelivery/add.vue')
+const  SellerGoodsDeliveryEdit = () => import('./views/Seller/GoodsDelivery/edit.vue')
+
+// 店铺幻灯片
+const  SellerGoodsSlide = () => import('./views/Seller/GoodsSlide/index.vue')
+const  SellerGoodsSlideAdd = () => import('./views/Seller/GoodsSlide/add.vue')
+const  SellerGoodsSlideEdit = () => import('./views/Seller/GoodsSlide/edit.vue')
+
+// 店铺信息
+const  SellerStore = () => import('./views/Seller/Store/edit.vue')
+
+// 售后服务
+const  SellerGoodsServerEdit = () => import('./views/Seller/GoodsServer/edit.vue')
+
+// 商家提现
+const  SellerCash = () => import('./views/Seller/Cash/index.vue')
+const  SellerCashAdd = () => import('./views/Seller/Cash/add.vue')
 
 
 
@@ -260,10 +282,32 @@ export default new Router({
       {path:'/Seller/goods/add',name:'seller_goods_add',component:SellerGoodsAdd},
       {path:'/Seller/goods/edit/edit/:id',name:'seller_goods_edit',component:SellerGoodsEdit},
 
-      // 仓库管理
-      {path:'/Seller/warehouse/index',name:'seller_goods_index',component:SellerWarehouse}, 
-      {path:'/Seller/warehouse/add',name:'seller_goods_add',component:SellerWarehouseAdd},
-      {path:'/Seller/warehouse/edit/edit/:id',name:'seller_goods_edit',component:SellerWarehouseEdit},
+      // 订单列表
+      {path:'/Seller/order/index',name:'seller_order_index',component:SellerOrder}, 
+      {path:'/Seller/order/info/:id',name:'seller_order_info',component:SellerOrderInfo}, 
+
+      // 商品评论
+      {path:'/Seller/goods_comment/index',name:'seller_goods_comment_index',component:SellerGoodsComment}, 
+
+      // 快递模版
+      {path:'/Seller/goods_delivery/index',name:'seller_goods_delivery_index',component:SellerGoodsDelivery}, 
+      {path:'/Seller/goods_delivery/add',name:'seller_goods_delivery_add',component:SellerGoodsDeliveryAdd}, 
+      {path:'/Seller/goods_delivery/edit/:id',name:'seller_goods_delivery_edit',component:SellerGoodsDeliveryEdit},
+
+      // 店铺幻灯片
+      {path:'/Seller/goods_slide/index',name:'seller_goods_slide_index',component:SellerGoodsSlide}, 
+      {path:'/Seller/goods_slide/add',name:'seller_goods_slide_add',component:SellerGoodsSlideAdd}, 
+      {path:'/Seller/goods_slide/edit/:id',name:'seller_goods_slide_edit',component:SellerGoodsSlideEdit},
+
+      // 店铺信息设置
+      {path:'/Seller/store/edit',name:'seller_store_edit',component:SellerStore}, 
+
+      // 售后服务
+      {path:'/Seller/goods_server/edit',name:'seller_goods_server_edit',component:SellerGoodsServerEdit}, 
+
+      // 商家提现
+      {path:'/Seller/cash/index',name:'seller_cash',component:SellerCash},
+      {path:'/Seller/cash/add',name:'seller_cash_add',component:SellerCashAdd},
 
 
     ]},

@@ -1,45 +1,45 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Seller;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Model\GoodsShop;
+use App\Model\Store;
 use App\Tools\Uploads;
 use Tymon\JWTAuth\Facades\JWTAuth;
 
-class GoodsShopController extends BaseController
+class StoreController extends BaseController
 {
 
-    public function edit(Request $req,GoodsShop $goods_shop){
+    public function edit(Request $req,Store $store){
         $userInfo = JWTAuth::parseToken()->touser();
         if($req->isMethod('get')){
-            $data['info'] = $goods_shop->where('user_id',$userInfo['id'])->first();
+            $data['info'] = $store->where('user_id',$userInfo['id'])->first();
             if(empty($data['info'])){
                 $data['info']['user_id'] = $userInfo['id'];
                 $data['info']['title'] = $userInfo['nickname'].'店铺';
-                $goods_shop->insert($data['info']);
-                $data['info'] = $goods_shop->where('user_id',$userInfo['id'])->first();
+                $store->insert($data['info']);
+                $data['info'] = $store->where('user_id',$userInfo['id'])->first();
             }
             return $data;
         }
 
-        if(empty($req->title)){
+        if(empty($req->name)){
             return $this->returnData(false,401,'请认真填写！');
         }
 
-        $data['title'] = $req->title;
+        $data['name'] = $req->name;
         $data['content'] = $req->content;
         $data['address'] = $req->address;
         $data['logo'] = $req->logo;
-        $data['images'] = isset($req->images)?implode(',',$req->images):'';
+        $data['face_img'] = isset($req->face_img)?implode(',',$req->images):'';
         $data['lat'] = $req->lat;
         $data['lng'] = $req->lng;
         $data['province'] = $req->province;
         $data['city'] = $req->city;
         $data['region'] = $req->region;
 
-        $rs = $goods_shop->where('user_id',$userInfo['id'])->update($data);
+        $rs = $store->where('user_id',$userInfo['id'])->update($data);
         return $this->returnData(true);
 
     }

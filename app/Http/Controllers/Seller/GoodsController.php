@@ -143,12 +143,12 @@ class GoodsController extends BaseController
     }
 
     // 是否免单产品
-    public function onFree(Request $req,Goods $goods){
-        $id = $req->id;
-        $goodsInfo = $goods->find($id);
-        $data = [];
-        $data['is_free'] = empty($goodsInfo['is_free'])?'1':'0';
-        $rs = $goods->where('id',$id)->update($data);
-        return $this->returnData($rs);
-    }
+    // public function onFree(Request $req,Goods $goods){
+    //     $id = $req->id;
+    //     $goodsInfo = $goods->find($id);
+    //     $data = [];
+    //     $data['is_free'] = empty($goodsInfo['is_free'])?'1':'0';
+    //     $rs = $goods->where('id',$id)->update($data);
+    //     return $this->returnData($rs);
+    // }
 }

@@ -11,7 +11,7 @@
 
 					<!-- 导航 -->
 					<div class="left_bar" ref="left_bar">
-						<div class="admin_logo"><span :style="barshow"><font color="#409EFF">Q</font>ingwu</span><span :style="barhide"><font color="#409EFF">Q</font>w</span></div>
+						<div class="admin_logo"><span :style="barshow"><font color="#409EFF">Q</font>wShop</span><span :style="barhide"><font color="#409EFF">Q</font>w</span></div>
 						<el-menu background-color="#20222A" text-color="#cfcfcf"  active-text-color="#fff" :router=true>
 							<el-menu-item index="/Seller/index">
 			      				<span slot="title"><i class="icon iconfont title_i">&#xe625;</i><font :class="{left_bar_text:is_left_bar_text}">系统首页</font></span>
@@ -19,16 +19,16 @@
 
 			      			<el-submenu index="1">
 				      			<span slot="title" @click="hideBar(false)"><i class="icon iconfont title_i">&#xe654;</i><font :class="{left_bar_text:is_left_bar_text}">店铺设置</font></span>
-				      			<el-menu-item  index="/">
+				      			<el-menu-item  index="/Seller/goods_slide/index">
 				      				<span slot="title">店铺幻灯片</span>
 				      			</el-menu-item>
-				      			<el-menu-item  index="/">
+				      			<el-menu-item  index="/Seller/store/edit">
 				      				<span slot="title">店铺信息</span>
 				      			</el-menu-item>
-				      			<el-menu-item  index="/">
-				      				<span slot="title">提现设置</span>
+				      			<el-menu-item  index="/Seller/cash/index">
+				      				<span slot="title">提现列表</span>
 				      			</el-menu-item>
-				      			<el-menu-item  index="/">
+				      			<el-menu-item  index="/Seller/goods_server/edit">
 				      				<span slot="title">售后服务</span>
 				      			</el-menu-item>
 							</el-submenu>
@@ -38,20 +38,20 @@
 				      			<el-menu-item index="/Seller/goods/index">
 				      				<span slot="title">商品列表</span>
 				      			</el-menu-item>
-				      			<el-menu-item index="/Seller/warehouse/index">
+				      		<!-- 	<el-menu-item index="/Seller/warehouse/index">
 				      				<span slot="title">仓库列表</span>
-				      			</el-menu-item>
+				      			</el-menu-item> -->
 							</el-submenu>
 
 							<el-submenu index="3">
 				      			<span slot="title" @click="hideBar(false)"><i class="icon iconfont title_i">&#xe61b;</i><font :class="{left_bar_text:is_left_bar_text}">订单管理</font></span>
-				      			<el-menu-item index="/">
+				      			<el-menu-item index="/Seller/order/index">
 				      				<span slot="title">订单列表</span>
 				      			</el-menu-item>
-				      			<el-menu-item index="/">
+				      			<el-menu-item index="/Seller/goods_comment/index">
 				      				<span slot="title">评论列表</span>
 				      			</el-menu-item>
-				      			<el-menu-item index="/">
+				      			<el-menu-item index="/Seller/goods_delivery/index">
 				      				<span slot="title">物流管理</span>
 				      			</el-menu-item>
 							</el-submenu>
@@ -169,7 +169,7 @@ export default {
 		// 退出账号
 		logout:function(){
 			var _this = this;
-			this.$get(this.ROOT_URL + "Admin/logout").then(function(res){
+			this.$get(this.ROOT_URL + "Seller/logout").then(function(res){
 				if(res.code == 200){
 					localStorage.removeItem('token');
 					_this.$message({message:res.message,type:'success'});

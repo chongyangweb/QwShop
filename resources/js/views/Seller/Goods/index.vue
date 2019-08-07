@@ -5,12 +5,12 @@
 
 			<!-- <input class="index_search_input" type="text" placeholder="输入搜索内容"> -->
 			<el-input  class="search_input" style="width:200px;" size="small" v-model="title" placeholder="请输入标题"></el-input>
-<!-- 
+
 			<el-select style="margin-right: 10px;" v-model="is_sale" placeholder="请选择" size="small">
 			    <el-option key="" label="是否上架" value=""></el-option>
 			    <el-option key="1" label="上架" value="1"></el-option>
 			    <el-option key="0" label="下架" value="0"></el-option>
-			</el-select> -->
+			</el-select>
 			<el-button icon="el-icon-search" @click="search" plain>搜索</el-button>
 
 			<el-button class="main_del_right" icon="el-icon-delete" type="danger" @click="del">批量删除</el-button>
@@ -32,10 +32,6 @@
 
 				<el-table-column label="标题" >
 				<template slot-scope="scope">{{ scope.row.title }}</template>
-				</el-table-column>
-
-				<el-table-column label="免单产品" width="100">
-				<template slot-scope="scope"><div :class="scope.row.is_free?'success_rand':'error_rand'" @click="onFree(scope.row.id)"></div></template>
 				</el-table-column>
 
 				<el-table-column label="上架" width="80">
@@ -130,7 +126,7 @@
 	      // 上架
 	      onSale:function(id){
 	      	var _this = this;
-	      	this.$post(this.ROOT_URL + 'Admin/goods/onSale',{id:id}).then(function(res){
+	      	this.$post(this.ROOT_URL + 'Seller/goods/onSale',{id:id}).then(function(res){
 	      		_this.$message({
 		          message: '恭喜你，修改成功！',
 		          type: 'success'
@@ -138,18 +134,6 @@
 		        _this.getList();
 	      	});
 	      },
-	      // 变成免单
-	      onFree:function(id){
-	      	var _this = this;
-	      	this.$post(this.ROOT_URL + 'Admin/goods/onFree',{id:id}).then(function(res){
-	      		_this.$message({
-		          message: '恭喜你，修改成功！',
-		          type: 'success'
-		        });
-		        _this.getList();
-	      	});
-	      },
-
 
 
 	      

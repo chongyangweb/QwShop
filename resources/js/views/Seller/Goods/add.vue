@@ -59,7 +59,7 @@
 						<el-col :span="3"><div class="input_lable">缩略图</div></el-col>
 						<el-col :span="19">
 						<el-upload
-						  :action="ROOT_URL + 'Seller/goods_brand/thumb?token=' + getToken()"
+						  :action="ROOT_URL + 'Seller/goods/thumb?token=' + getToken()"
 						  list-type="picture-card"
 						  :on-success="onSuccess"
 						  :on-remove="handleRemove">

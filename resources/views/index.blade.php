@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Laravel</title>
+    <script src="http://api.map.baidu.com/api?v=2.0&ak=2APAXMznIEFd7m6oQZSilGyw"></script>
  
 </head>
 <body>

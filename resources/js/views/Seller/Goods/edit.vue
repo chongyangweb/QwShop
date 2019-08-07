@@ -59,7 +59,7 @@
 						<el-col :span="3"><div class="input_lable">缩略图</div></el-col>
 						<el-col :span="19">
 						<el-upload
-						  :action="ROOT_URL + 'Seller/goods_brand/thumb?token=' + getToken()"
+						  :action="ROOT_URL + 'Seller/goods/thumb?token=' + getToken()"
 						  list-type="picture-card"
 						  :on-success="onSuccess"
 						  :file-list="fileList2"
@@ -478,7 +478,7 @@
 	    		_this.sub_title = res.info.sub_title;
 	    		_this.content = res.info.content;
 	    		_this.is_hot = res.info.is_hot+'';
-	    		_this.fileList2.push({name:'',url:res.info.avatar});
+	    		// _this.fileList2.push({name:'',url:res.info.avatar});
 	    		_this.is_top = res.info.is_top+'';
 	    		_this.is_sale = res.info.is_sale+'';
 	    		_this.thumb = res.info.images;
@@ -495,10 +495,12 @@
 	    		}
 	    		
 	    		var images = res.info.images.split(',');
-	    		console.log(_this.fileList2);
+
 	    		_this.fileList2 = [];
-	    		for(var i=0;i<images.length;i++){
-	    			_this.fileList2.push({name:'123',url:images[i]});
+	    		if(images != ''){
+	    			for(var i=0;i<images.length;i++){
+		    			_this.fileList2.push({name:'123',url:images[i]});
+		    		}
 	    		}
 	    		E.txt.html(_this.content);
 	    	});

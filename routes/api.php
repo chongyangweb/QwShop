@@ -190,6 +190,9 @@ Route::namespace('Seller')->prefix('Seller')->group(function(){
 	// 视图公共部分 index.vue
 	Route::get('/index','IndexController@index');
 
+	// 单独出来的各种接口
+	Route::match(['options','post','get'],'/Auto/content_upload', 'AutoController@content_upload');
+
 	// 登陆接口
 	Route::post('/login', 'LoginController@login');
 	Route::get('/logout', 'LoginController@logout');
@@ -202,6 +205,42 @@ Route::namespace('Seller')->prefix('Seller')->group(function(){
 	Route::match(['get','post'],'/goods/edit/{id}', 'GoodsController@edit');
 	Route::post('/goods/index', 'GoodsController@index');
 	Route::match(['OPTIONS','post'],'/goods/thumb', 'GoodsController@thumb');
+	Route::post('/goods/onSale','GoodsController@onSale');
+
+	// 订单
+	Route::post('/order/index', 'OrderController@index');
+	Route::post('/order/getOrderInfo', 'OrderController@getOrderInfo');
+	Route::post('/order/edit_delivery_no', 'OrderController@edit_delivery_no'); // 修改快递号，和状态
+
+	//  商品评论
+	Route::post('/goods_comment/index', 'GoodsCommentController@index');
+	Route::post('/goods_comment/recGoodsComment', 'GoodsCommentController@recGoodsComment');
+
+	// 快递模版
+	Route::match(['get','post'],'/goods_delivery/add', 'GoodsDeliveryController@add');
+	Route::post('/goods_delivery/del', 'GoodsDeliveryController@del');
+	Route::match(['get','post'],'/goods_delivery/edit/{id}', 'GoodsDeliveryController@edit');
+	Route::post('/goods_delivery/index', 'GoodsDeliveryController@index');
+
+	// 地区代理
+	// 获取指定的地区信息
+	Route::match(['get','post'],'/goods_area/getArea', 'GoodsAreaController@getArea');
+	Route::match(['get','post'],'/goods_area/editArea', 'GoodsAreaController@editArea');//添加代理
+
+	// 店铺幻灯片
+	Route::match(['get','post'],'/goods_slide/add', 'GoodsSlideController@add');
+	Route::post('/goods_slide/del', 'GoodsSlideController@del');
+	Route::match(['get','post'],'/goods_slide/edit/{id}', 'GoodsSlideController@edit');
+	Route::post('/goods_slide/index', 'GoodsSlideController@index');
+	Route::match(['options','post'],'/goods_slide/slide', 'GoodsSlideController@slide');
+
+	// 店铺信息
+	Route::match(['get','post'],'/store/edit', 'StoreController@edit');
+	Route::match(['options','post'],'/store/avatar', 'StoreController@avatar');
+	Route::match(['options','post'],'/store/shop_thumb', 'GoodsShopController@shop_thumb');
+
+	// 售后服务内容
+	Route::match(['get','post'],'/goods_server/edit', 'GoodsServerController@edit');
 
 
 });
@@ -288,35 +327,6 @@ Route::namespace('Shop')->prefix('Shop')->group(function(){
 });
 
 
-// 教育答题前端api
-Route::namespace('Edu')->prefix('Edu')->group(function(){
-
-	// 微信回调服务器接口
-	Route::any('/wechat/getWechat', 'WechatController@getWechat'); 
-	Route::any('/wechat/callback', 'WechatController@callback'); 
-
-	Route::post('/wechat/getLogin', 'WechatController@getLogin'); // 微信登陆
-
-	// 用户信息
-	Route::get('/user/get_user_info', 'UserController@get_user_info'); // 获取用户信息
-	Route::get('/user/get_grade_subject', 'UserController@get_grade_subject'); // 获取年纪科目
-	Route::post('/user/edit_learning_scope', 'UserController@edit_learning_scope');// 修改学习范围
-
-	Route::get('/user/clear_error_question', 'UserController@clear_error_question');// 清空错题本
-
-
-	// 首页获取打卡日志
-	Route::get('/index/getSign', 'IndexController@getSign'); // 数量和今日打卡
-
-	// 获取题目
-	Route::post('/question/getQuestion', 'QuestionController@getQuestion'); // 正常题目
-	Route::post('/question/getQuestionError', 'QuestionController@getQuestionError'); // 错题题目
-	Route::post('/question/del_error_question', 'QuestionController@del_error_question'); // 错题删除
-
-	// 加入错题本
-	Route::post('/question/add_error_question', 'QuestionController@add_error_question'); // 正常题目
-
-});
 
 
 

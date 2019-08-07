@@ -1,19 +1,13 @@
 <template>
 	<div class="index_main">
 		<div class="main_btn_left">
-			<router-link class="admin_fff_btn" :to="{name:'seller_goods_add'}"><el-button type="primary" icon="el-icon-plus">添加</el-button></router-link>
+			<!-- <router-link class="admin_fff_btn" :to="{name:'goods_add'}"><el-button type="primary" icon="el-icon-plus">添加</el-button></router-link> -->
 
 			<!-- <input class="index_search_input" type="text" placeholder="输入搜索内容"> -->
-			<el-input  class="search_input" style="width:200px;" size="small" v-model="title" placeholder="请输入标题"></el-input>
-<!-- 
-			<el-select style="margin-right: 10px;" v-model="is_sale" placeholder="请选择" size="small">
-			    <el-option key="" label="是否上架" value=""></el-option>
-			    <el-option key="1" label="上架" value="1"></el-option>
-			    <el-option key="0" label="下架" value="0"></el-option>
-			</el-select> -->
+			<el-input  class="search_input" style="width:200px;" size="small" v-model="id" placeholder="请输入ID"></el-input>
 			<el-button icon="el-icon-search" @click="search" plain>搜索</el-button>
 
-			<el-button class="main_del_right" icon="el-icon-delete" type="danger" @click="del">批量删除</el-button>
+			<!-- <el-button class="main_del_right" icon="el-icon-delete" type="danger" @click="del">批量删除</el-button> -->
 		</div>
 		<input type="hidden" v-model="ids" value="">
 		<div class="unline"></div>
@@ -26,30 +20,27 @@
 				<template slot-scope="scope">{{ scope.row.id }}</template>
 				</el-table-column>
 
-				<el-table-column label="产品" width="80">
-				<template slot-scope="scope"><img width="50px" height="50px" :src="scope.row.images.split(',')[0]"></template>
+				<el-table-column label="产品" width="70">
+				<template slot-scope="scope"><img width="50px" height="50px" :src="scope.row.get_goods.images.split(',')[0]"></template>
 				</el-table-column>
 
 				<el-table-column label="标题" >
-				<template slot-scope="scope">{{ scope.row.title }}</template>
+				<template slot-scope="scope">{{ scope.row.get_goods.title }}</template>
 				</el-table-column>
 
-				<el-table-column label="免单产品" width="100">
-				<template slot-scope="scope"><div :class="scope.row.is_free?'success_rand':'error_rand'" @click="onFree(scope.row.id)"></div></template>
+				<el-table-column label="内容">
+				<template slot-scope="scope">{{ scope.row.content}}</template>
 				</el-table-column>
 
-				<el-table-column label="上架" width="80">
-				<template slot-scope="scope"><div :class="scope.row.is_sale?'success_rand':'error_rand'" @click="onSale(scope.row.id)"></div></template>
-				</el-table-column>
 
-				<el-table-column label="加入时间" >
+				<el-table-column label="加入时间">
 				<template slot-scope="scope">{{ scope.row.add_time|formatDate}}</template>
 				</el-table-column>
 
 				<el-table-column label="操作">
 				<template slot-scope="scope">
 				<!-- <el-button plain>查看</el-button> -->
-				<router-link :to="{name:'seller_goods_edit',params:{id:scope.row.id}}"><el-button plain icon="el-icon-edit" >编辑</el-button></router-link>
+				<el-button plain icon="el-icon-edit" v-show="scope.row.get_rec == null " @click="recGoodsComment(scope.row.id)">回复</el-button>
 				</template>
 				</el-table-column>
 
@@ -57,6 +48,23 @@
 			<div class="fy">
 				<el-pagination medium layout="total, sizes, prev, pager" :total="page.count" :page-size="page.limit" :current-page="page.page" @size-change="size_change" @current-change="current_change"> </el-pagination>
 			</div>
+
+			<el-dialog
+			  title="回复评价"
+			  :visible.sync="dialogVisible"
+			  width="30%"
+			  :before-close="handleClose">
+			  	<el-input
+				  type="textarea"
+				  :autosize="{ minRows: 2, maxRows: 4}"
+				  placeholder="请输入内容"
+				  v-model="textarea3">
+				</el-input>
+			  <span slot="footer" class="dialog-footer">
+			    <el-button @click="dialogVisible = false">取 消</el-button>
+			    <el-button type="primary" @click="startComment()">确 定</el-button>
+			  </span>
+			</el-dialog>
 	</div>
 </template>
 
@@ -68,8 +76,10 @@
 		    	lists: [],
 		    	ids:null,
 		    	page:[],
-		    	title:'',
-		    	is_sale:'',
+		    	id:'',
+		    	dialogVisible: false,
+		    	commentId:'',
+		    	textarea3:'',
 
 		    }
 	    },
@@ -97,7 +107,7 @@
 
 	      	var _this = this;
 	      	this.ids = this.ids.substr(0, this.ids.length - 1);
-	      	this.$post(this.ROOT_URL + 'Seller/goods/del',{id:this.ids}).then(function(res){
+	      	this.$post(this.ROOT_URL + 'Seller/goods_comment/del',{id:this.ids}).then(function(res){
 	      		_this.$message({
 		          message: '恭喜你，删除成功！',
 		          type: 'success'
@@ -115,42 +125,42 @@
 	      },
 	      search:function(){
 	      	var _this = this;
-	    	_this.$post(this.ROOT_URL + 'Seller/goods/index',{limit:this.page.limit,page:this.page.page,title:this.title,is_sale:1}).then(function(res){
-	    		_this.lists = res.data;
+	    	_this.$post(this.ROOT_URL + 'Seller/goods_comment/index',{limit:this.page.limit,page:this.page.page,id:this.id}).then(function(res){
+	    		_this.lists = res.goods_comment;
 	    		_this.page = res.page;
 	    	});
 	      },
 	      getList:function(){
 	      	var _this = this;
-	    	_this.$post(this.ROOT_URL + 'Seller/goods/index',{limit:this.page.limit,page:this.page.page}).then(function(res){
-	    		_this.lists = res.data;
+	    	_this.$post(this.ROOT_URL + 'Seller/goods_comment/index',{limit:this.page.limit,page:this.page.page}).then(function(res){
+	    		_this.lists = res.goods_comment;
 	    		_this.page = res.page;
 	    	});
 	      },
-	      // 上架
-	      onSale:function(id){
+	      recGoodsComment:function(id){
+	      	
+	      	this.commentId = id;
+	      	this.dialogVisible = true;
+	    	this.getList();
+	      },
+
+	      handleClose(done) {
+	        this.$confirm('确认关闭？')
+	          .then(_ => {
+	            done();
+	          })
+	          .catch(_ => {});
+	      },
+	      startComment:function(){
 	      	var _this = this;
-	      	this.$post(this.ROOT_URL + 'Admin/goods/onSale',{id:id}).then(function(res){
-	      		_this.$message({
-		          message: '恭喜你，修改成功！',
+	      	_this.$post(this.ROOT_URL + 'Seller/goods_comment/recGoodsComment',{id:this.commentId,content:this.textarea3}).then(function(res){
+	    		_this.$message({
+		          message: '恭喜你，回复成功！',
 		          type: 'success'
 		        });
 		        _this.getList();
-	      	});
-	      },
-	      // 变成免单
-	      onFree:function(id){
-	      	var _this = this;
-	      	this.$post(this.ROOT_URL + 'Admin/goods/onFree',{id:id}).then(function(res){
-	      		_this.$message({
-		          message: '恭喜你，修改成功！',
-		          type: 'success'
-		        });
-		        _this.getList();
-	      	});
-	      },
-
-
+	    	});
+	      }
 
 	      
 	    },
