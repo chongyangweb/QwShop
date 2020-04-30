@@ -14,7 +14,7 @@
         "bootstrap": "^4.1.0",
         "cross-env": "^5.1",
         "echarts": "^4.2.1",
-        "jquery": "^3.2",
+        "jquery": "^3.5",
         "js-base64": "^2.5.1",
         "laravel-mix": "^4.0.7",
         "lodash": "^4.17.5",
